@@ -29,6 +29,67 @@
     </table>
   </div>
 
-  <script src="../script.js"></script>
+  <script>
+    let clientes = [];
+
+    // Função para formatar CPF
+    function formatCPF(cpf) {
+      return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    }
+
+    // Função para formatar Telefone
+    function formatTelefone(telefone) {
+      return telefone.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+    }
+
+    // Função para renderizar a tabela de clientes
+    function renderClientTable() {
+      const clientTableBody = document.getElementById("clientTableBody");
+      clientTableBody.innerHTML = "";
+
+      clientes.forEach((client, index) => {
+        const row = clientTableBody.insertRow();
+
+        row.innerHTML = `
+          <td>${client.nome}</td>
+          <td>${formatCPF(client.cpf)}</td>
+          <td>${client.dataNascimento}</td>
+          <td>${formatTelefone(client.telefone)}</td>
+          <td>${client.fidelidade}</td>
+          <td>
+            <button onclick="editarCliente(${index})" class="btn btn-warning btn-sm">Editar</button>
+            <button onclick="excluirCliente(${index})" class="btn btn-danger btn-sm">Excluir</button>
+          </td>
+        `;
+      });
+    }
+
+    // Função para adicionar cliente
+    function addClient(cliente) {
+      clientes.push(cliente);
+      renderClientTable();
+    }
+
+    // Função para editar cliente
+    function editarCliente(index) {
+      alert(`Editar cliente: ${clientes[index].nome}`);
+    }
+
+    // Função para excluir cliente
+    function excluirCliente(index) {
+      if (confirm(`Deseja excluir o cliente ${clientes[index].nome}?`)) {
+        clientes.splice(index, 1);
+        renderClientTable();
+      }
+    }
+
+    // Abrir o cadastro de novo cliente
+    document.getElementById("btnNovoCliente").addEventListener("click", function() {
+      window.open("cadastrar_cliente.html", "_blank");
+    });
+
+    // Inicializa a tabela de clientes
+    renderClientTable();
+  </script>
 </body>
 </html>
