@@ -82,7 +82,7 @@
     // Exibe a matrícula gerada no campo de matrícula ao carregar a página
     document.getElementById("matricula").value = generateMatricula();
 
-    // Máscara para CPF e Telefone
+    // Máscaras de CPF e Telefone
     document.getElementById("cpf").addEventListener("input", function(e) {
       e.target.value = e.target.value
         .replace(/\D/g, "")
@@ -98,7 +98,7 @@
         .replace(/(\d{5})(\d{4})$/, "$1-$2");
     });
 
-    // Submissão do formulário de usuário
+    // Submissão do formulário de cadastro de usuário
     document.getElementById("userForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
@@ -116,11 +116,13 @@
         status: document.getElementById("status").value
       };
 
-      // Salva o usuário no Local Storage
-      saveUser(user);
+      // Envia o novo usuário para a lista
+      if (window.opener) {
+        window.opener.addUser(user);
+      }
 
       alert("Usuário cadastrado com sucesso!");
-      window.close(); // Fecha a aba após o cadastro
+      window.close();
     });
   </script>
 </body>
