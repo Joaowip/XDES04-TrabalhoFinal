@@ -35,6 +35,72 @@
     </table>
   </div>
 
-  <script src="../script.js"></script>
+  <script>
+    let usuarios = [];
+
+    // Função para formatar CPF
+    function formatCPF(cpf) {
+      return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    }
+
+    // Função para formatar Telefone
+    function formatTelefone(telefone) {
+      return telefone.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+    }
+
+    // Função para renderizar a tabela de usuários
+    function renderUserTable() {
+      const userTableBody = document.getElementById("userTableBody");
+      userTableBody.innerHTML = "";
+
+      usuarios.forEach((user, index) => {
+        const row = userTableBody.insertRow();
+        row.innerHTML = `
+          <td>${user.matricula}</td>
+          <td>${user.nome}</td>
+          <td>${formatCPF(user.cpf)}</td>
+          <td>${user.dataNascimento}</td>
+          <td>${user.endereco}</td>
+          <td>${user.genero}</td>
+          <td>${formatTelefone(user.telefone)}</td>
+          <td>${user.email}</td>
+          <td>${user.senha}</td>
+          <td>${user.tipo}</td>
+          <td>${user.status}</td>
+          <td>
+            <button onclick="editarUsuario(${index})" class="btn btn-warning btn-sm">Editar</button>
+            <button onclick="excluirUsuario(${index})" class="btn btn-danger btn-sm">Excluir</button>
+          </td>
+        `;
+      });
+    }
+
+    // Função para adicionar usuário
+    function addUser(user) {
+      usuarios.push(user);
+      renderUserTable();
+    }
+
+    // Função para editar usuário
+    function editarUsuario(index) {
+      alert(`Editar usuário: ${usuarios[index].nome}`);
+    }
+
+    // Função para excluir usuário
+    function excluirUsuario(index) {
+      if (confirm(`Deseja excluir o usuário ${usuarios[index].nome}?`)) {
+        usuarios.splice(index, 1);
+        renderUserTable();
+      }
+    }
+
+    // Abrir o cadastro de novo usuário
+    document.getElementById("btnNovoUsuario").addEventListener("click", function() {
+      window.open("cadastrar_usuario.html", "_blank");
+    });
+
+    // Inicializa a tabela de usuários
+    renderUserTable();
+  </script>
 </body>
 </html>
