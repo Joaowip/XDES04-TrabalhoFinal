@@ -39,7 +39,7 @@
   </div>
 
   <script>
-    // Máscara para CPF e Telefone
+    // Máscaras de CPF e Telefone
     document.getElementById("cpf").addEventListener("input", function(e) {
       e.target.value = e.target.value
         .replace(/\D/g, "")
@@ -55,26 +55,33 @@
         .replace(/(\d{5})(\d{4})$/, "$1-$2");
     });
 
-    // Submissão do formulário de cliente
+    // Função para formatar data de yyyy-mm-dd para dd/mm/yyyy
+    function formatarData(data) {
+      const partes = data.split('-');
+      return `${partes[2]}/${partes[1]}/${partes[0]}`;
+    }
+
+    // Submissão do formulário de cadastro de cliente
     document.getElementById("clientForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      // Coleta os dados do cliente
-      const client = {
+      const cliente = {
         nome: document.getElementById("nome").value,
         cpf: document.getElementById("cpf").value,
-        dataNascimento: document.getElementById("dataNascimento").value,
+        dataNascimento: formatarData(document.getElementById("dataNascimento").value),
         telefone: document.getElementById("telefone").value,
         fidelidade: document.getElementById("fidelidade").value
       };
 
-      // Salva o cliente no Local Storage
-      let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
-      clientes.push(client);
-      localStorage.setItem("clientes", JSON.stringify(clientes));
+      // Adiciona o novo cliente ao array da página pai
+      if (window.opener) {
+        window.opener.addClient(cliente);
+      }
 
       alert("Cliente cadastrado com sucesso!");
-      window.close(); // Fecha a aba após o cadastro
+
+      // Fecha a aba/modal de cadastro
+      window.close();
     });
   </script>
 </body>
