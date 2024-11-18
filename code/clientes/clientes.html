@@ -4,15 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRUD de Clientes</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h2>Lista de Clientes</h2>
-      <button id="btnNovoCliente" class="btn btn-primary">Cadastrar Novo Cliente</button>
-    </div>
+      <div>
+        <button id="btnConsultarClientes" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalConsultarCliente">Consultar Clientes</button>
+        <button id="btnNovoCliente" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCadastroCliente">Cadastrar Novo Cliente</button>
+      </div>
+    </div>    
 
     <table class="table table-striped">
       <thead>
@@ -29,8 +32,122 @@
     </table>
   </div>
 
+  <!-- Modal de Cadastro de Cliente -->
+  <div class="modal fade" id="modalCadastroCliente" tabindex="-1" aria-labelledby="modalCadastroClienteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCadastroClienteLabel">Cadastro de Cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="clientForm">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome Completo*</label>
+              <input type="text" class="form-control" id="nome" required>
+            </div>
+            <div class="mb-3">
+              <label for="cpf" class="form-label">CPF*</label>
+              <input type="text" class="form-control" id="cpf" required>
+            </div>
+            <div class="mb-3">
+              <label for="dataNascimento" class="form-label">Data de Nascimento*</label>
+              <input type="date" class="form-control" id="dataNascimento" required>
+            </div>
+            <div class="mb-3">
+              <label for="telefone" class="form-label">Telefone*</label>
+              <input type="text" class="form-control" id="telefone" required>
+            </div>
+            <div class="mb-3">
+              <label for="fidelidade" class="form-label">Fidelidade</label>
+              <select class="form-select" id="fidelidade">
+                <option value="Não" selected>Não</option>
+                <option value="Sim">Sim</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Cadastrar Cliente</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Consulta de Clientes -->
+  <div class="modal fade" id="modalConsultarCliente" tabindex="-1" aria-labelledby="modalConsultarClienteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalConsultarClienteLabel">Consultar Clientes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="filterForm">
+            <div class="mb-3">
+              <label for="filterNome" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="filterNome">
+            </div>
+            <div class="mb-3">
+              <label for="filterDataNascimento" class="form-label">Data de Nascimento</label>
+              <input type="date" class="form-control" id="filterDataNascimento">
+            </div>
+            <div class="mb-3">
+              <label for="filterCpf" class="form-label">CPF</label>
+              <input type="text" class="form-control" id="filterCpf">
+            </div>
+            <div class="mb-3">
+              <label for="filterFidelidade" class="form-label">Fidelidade</label>
+              <select class="form-select" id="filterFidelidade">
+                <option value="">Todos</option>
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Edição de Cliente -->
+  <div class="modal fade" id="modalEditarCliente" tabindex="-1" aria-labelledby="modalEditarClienteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarClienteLabel">Editar Cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editClientForm">
+            <div class="mb-3">
+              <label for="editNome" class="form-label">Nome Completo*</label>
+              <input type="text" class="form-control" id="editNome" required>
+            </div>
+            <div class="mb-3">
+              <label for="editTelefone" class="form-label">Telefone*</label>
+              <input type="text" class="form-control" id="editTelefone" required>
+            </div>
+            <div class="mb-3">
+              <label for="editFidelidade" class="form-label">Fidelidade</label>
+              <select class="form-select" id="editFidelidade">
+                <option value="Não">Não</option>
+                <option value="Sim">Sim</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Salvar Alterações</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    let clientes = [];
+    let clientes = [
+      { nome: "João Silva", cpf: "123.456.789-00", dataNascimento: "1990-05-12", telefone: "(11) 98765-4321", fidelidade: "Sim" },
+      { nome: "Maria Oliveira", cpf: "234.567.890-11", dataNascimento: "1985-09-22", telefone: "(21) 91234-5678", fidelidade: "Não" },
+      { nome: "Carlos Souza", cpf: "345.678.901-22", dataNascimento: "1992-03-15", telefone: "(31) 92345-6789", fidelidade: "Sim" }
+    ];
 
     // Função para formatar CPF
     function formatCPF(cpf) {
@@ -43,11 +160,11 @@
     }
 
     // Função para renderizar a tabela de clientes
-    function renderClientTable() {
+    function renderClientTable(clientList = clientes) {
       const clientTableBody = document.getElementById("clientTableBody");
       clientTableBody.innerHTML = "";
 
-      clientes.forEach((client, index) => {
+      clientList.forEach((client, index) => {
         const row = clientTableBody.insertRow();
 
         row.innerHTML = `
@@ -62,33 +179,101 @@
           </td>
         `;
       });
-    }
+}
 
-    // Função para adicionar cliente
-    function addClient(cliente) {
+
+    // Função para adicionar um novo cliente
+    function adicionarCliente(cliente) {
       clientes.push(cliente);
       renderClientTable();
     }
 
-    // Função para editar cliente
+    // Função para editar um cliente
     function editarCliente(index) {
-      alert(`Editar cliente: ${clientes[index].nome}`);
-    }
+      const client = clientes[index];
 
-    // Função para excluir cliente
-    function excluirCliente(index) {
-      if (confirm(`Deseja excluir o cliente ${clientes[index].nome}?`)) {
-        clientes.splice(index, 1);
+      document.getElementById("editNome").value = client.nome;
+      document.getElementById("editTelefone").value = client.telefone;
+      document.getElementById("editFidelidade").value = client.fidelidade;
+
+      const editForm = document.getElementById("editClientForm");
+      editForm.onsubmit = function(event) {
+        event.preventDefault();
+
+        client.nome = document.getElementById("editNome").value;
+        client.telefone = document.getElementById("editTelefone").value;
+        client.fidelidade = document.getElementById("editFidelidade").value;
+
         renderClientTable();
-      }
+
+        // Fechar o modal de edição - ajustando a criação da instância
+        const modalEditarElement = document.getElementById("modalEditarCliente");
+        const modalEditar = bootstrap.Modal.getInstance(modalEditarElement);
+        modalEditar.hide();  // Fechar o modal após salvar as alterações
+      };
+
+      const modal = new bootstrap.Modal(document.getElementById("modalEditarCliente"));
+      modal.show();
     }
 
-    // Abrir o cadastro de novo cliente
-    document.getElementById("btnNovoCliente").addEventListener("click", function() {
-      window.open("cadastrar_cliente.html", "_blank");
-    });
 
-    // Inicializa a tabela de clientes
+    // Função para excluir um cliente
+    function excluirCliente(index) {
+      clientes.splice(index, 1);
+      renderClientTable();
+    }
+
+    // Função para filtrar os clientes
+    function filtrarClientes() {
+      const nome = document.getElementById("filterNome").value.toLowerCase();
+      const dataNascimento = document.getElementById("filterDataNascimento").value;
+      const cpf = document.getElementById("filterCpf").value;
+      const fidelidade = document.getElementById("filterFidelidade").value;
+
+      const filteredClients = clientes.filter(client => {
+        return (
+          (nome ? client.nome.toLowerCase().includes(nome) : true) &&
+          (dataNascimento ? client.dataNascimento === dataNascimento : true) &&
+          (cpf ? client.cpf.includes(cpf) : true) &&
+          (fidelidade ? client.fidelidade === fidelidade : true)
+        );
+      });
+
+      renderClientTable(filteredClients);
+    }
+
+    // Função para enviar o formulário de cadastro de cliente
+    document.getElementById("clientForm").onsubmit = function(event) {
+      event.preventDefault();
+
+      const novoCliente = {
+        nome: document.getElementById("nome").value,
+        cpf: document.getElementById("cpf").value,
+        dataNascimento: document.getElementById("dataNascimento").value,
+        telefone: document.getElementById("telefone").value,
+        fidelidade: document.getElementById("fidelidade").value
+      };
+
+      adicionarCliente(novoCliente);
+
+      // Fechar o modal de cadastro - ajustar a criação da instância
+      const modalCadastroElement = document.getElementById("modalCadastroCliente");
+      const modalCadastro = bootstrap.Modal.getInstance(modalCadastroElement);
+      modalCadastro.hide();  // Fechar o modal após o cadastro
+    };
+
+    // Função para enviar o filtro de consulta de clientes
+    document.getElementById("filterForm").onsubmit = function(event) {
+      event.preventDefault();
+      filtrarClientes();
+
+      // Fechar o modal de consulta - ajustando a criação da instância
+      const modalConsultaElement = document.getElementById("modalConsultarCliente");
+      const modalConsulta = bootstrap.Modal.getInstance(modalConsultaElement);
+      modalConsulta.hide();  // Fechar o modal após aplicar o filtro
+};
+
+    // Inicializar a tabela com os dados
     renderClientTable();
   </script>
 </body>
