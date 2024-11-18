@@ -1,0 +1,218 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Corpo */
+body {
+    background-color: #ffffff;
+    color: #333;
+    padding: 20px;
+}
+
+/* Título principal */
+h1 {
+    font-size: 1.8rem;
+    text-align: left;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Estilo para a área do título e botão */
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    text-align: left;  /* Alinhado à esquerda */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;  /* Remover o margin-bottom do h1 para não afetar o layout */
+}
+
+.cadastrar {
+    background-color: #2980b9;
+    color: white;
+    width: 300px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cadastrar:hover {
+    background-color: #4CAF50;
+}
+
+
+/* Formulário */
+form {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+.enviar{
+    background-color: #4CAF50;
+}
+
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #2980b9;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Botão no estilo das imagens */
+#btn-novo {
+    width: auto;
+    padding: 8px 16px;
+    background-color: #3498db;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#btn-novo:hover {
+    background-color: #2980b9;
+}
+
+button.Cadastrar{
+    display: flex;
+    align-self: right;
+    background-color: #2980b9;
+    color: white;
+    width: 300px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Tabela */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+table th {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-bottom: 3px solid black;
+}
+
+tbody{
+    background-color:#ddd;
+}
+
+.botoes{
+    display: flex;
+    gap: 10px;
+    text-align: center;
+}
+
+
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Botões na tabela */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button.edit-btn {
+    background-color: #ffc107;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-align: center;
+    width: 60px;
+}
+
+button.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+button.delete-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-align: center;
+    width: 60px;
+}
+

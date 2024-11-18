@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Atendimentos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lista de Atendimentos</h1>
+            <button class="cadastrar" onclick="window.location.href='cadastrar_atendimento.html'">Cadastrar Novo Atendimento</button>
+        </header>
+
+        <section class="filtros">
+            <form id="filter-form">
+                <div class="form-group">
+                    <label for="filter-cliente">Cliente:</label>
+                    <input type="text" id="filter-cliente" placeholder="Nome do cliente">
+                </div>
+                <div class="form-group">
+                    <label for="filter-data">Data do Atendimento:</label>
+                    <input type="date" id="filter-data">
+                </div>
+                <div class="form-group">
+                    <label for="filter-servico">Serviço:</label>
+                    <select id="filter-servico">
+                        <option value="">Todos</option>
+                        <option value="Cabelo">Cabelo</option>
+                        <option value="Barba">Barba</option>
+                        <option value="Bigode">Bigode</option>
+                        <option value="Sobrancelha">Sobrancelha</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filter-barbeiro">Barbeiro Responsável:</label>
+                    <input type="text" id="filter-barbeiro" placeholder="Nome do barbeiro">
+                </div>
+                <div class="form-buttons">
+                    <button type="button" id="btn-filtrar">Filtrar</button>
+                    <button type="button" id="btn-limpar-filtro">Limpar Filtros</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="tabela-atendimentos">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Serviço</th>
+                        <th>Valor</th>
+                        <th>Barbeiro</th>
+                        <th>Forma de Pagamento</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="atendimentos-tabela">
+                    <!-- Linhas dinâmicas serão preenchidas pelo JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
