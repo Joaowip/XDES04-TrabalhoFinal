@@ -264,47 +264,98 @@
     const loadTableData = () => {
       const userTableBody = document.getElementById("userTableBody");
       userTableBody.innerHTML = "";
-
       users.forEach(user => {
         const row = document.createElement("tr");
         row.innerHTML = `
-        <td>${user.matricula}</td>
-        <td>${user.nome}</td>
-        <td>${user.cpf}</td>
-        <td>${user.dataNascimento}</td>
-        <td>${user.endereco}</td>
-        <td>${user.genero}</td>
-        <td>${user.telefone}</td>
-        <td>${user.email}</td>
-        <td>${user.senha}</td>
-        <td>${user.tipo}</td>
-        <td>${user.status}</td>
-        <td>
-          <button class="btn btn-warning" onclick="editUser(${user.matricula})">Editar</button>
-          <button class="btn btn-danger" onclick="deleteUser(${user.matricula})">Excluir</button>
-        </td>
-      `;
+          <td>${user.matricula}</td>
+          <td>${user.nome}</td>
+          <td>${user.cpf}</td>
+          <td>${user.dataNascimento}</td>
+          <td>${user.endereco}</td>
+          <td>${user.genero}</td>
+          <td>${user.telefone}</td>
+          <td>${user.email}</td>
+          <td>${user.senha}</td>
+          <td>${user.tipo}</td>
+          <td>${user.status}</td>
+          <td>
+            <button class="btn btn-warning" onclick="editUser(${user.matricula})">Editar</button>
+            <button class="btn btn-danger" onclick="deleteUser(${user.matricula})">Excluir</button>
+          </td>
+        `;
         userTableBody.appendChild(row);
       });
     };
 
+    document.getElementById("userForm").onsubmit = (event) => {
+      event.preventDefault();
+
+      const newUser = {
+        matricula: generateMatricula(),
+        nome: document.getElementById("nome").value,
+        cpf: document.getElementById("cpf").value,
+        dataNascimento: document.getElementById("dataNascimento").value,
+        endereco: document.getElementById("endereco").value,
+        genero: document.getElementById("genero").value,
+        telefone: document.getElementById("telefone").value,
+        email: document.getElementById("email").value,
+        senha: document.getElementById("senha").value,
+        tipo: document.getElementById("tipo").value,
+        status: document.getElementById("status").value
+      };
+
+      users.push(newUser);
+      loadTableData();
+
+      const modalCadastro = bootstrap.Modal.getInstance(document.getElementById("modalCadastro"));
+      modalCadastro.hide();
+
+      document.getElementById("userForm").reset();
+    };
+
     window.onload = loadTableData;
 
-    const editUser = (matricula) => {
-      const user = users.find(u => u.matricula === matricula);
-      if (user) {
-        document.getElementById("editIndex").value = user.matricula;
-        document.getElementById("editNome").value = user.nome;
-        document.getElementById("editEndereco").value = user.endereco;
-        document.getElementById("editTelefone").value = user.telefone;
-        document.getElementById("editEmail").value = user.email;
-        document.getElementById("editSenha").value = user.senha;
-        document.getElementById("editTipo").value = user.tipo;
-        document.getElementById("editStatus").value = user.status;
-        const modal = new bootstrap.Modal(document.getElementById('modalEdicao'));
-        modal.show();
-      }
-    };
+    // Função para abrir o modal e preencher os campos
+const editUser = (matricula) => {
+  const user = users.find(u => u.matricula === matricula);
+  if (user) {
+    // Preencher os campos do modal com os dados do usuário
+    document.getElementById("editIndex").value = matricula;
+    document.getElementById("editNome").value = user.nome;
+    document.getElementById("editEndereco").value = user.endereco;
+    document.getElementById("editTelefone").value = user.telefone;
+    document.getElementById("editEmail").value = user.email;
+    document.getElementById("editSenha").value = user.senha;
+    document.getElementById("editTipo").value = user.tipo;
+    document.getElementById("editStatus").value = user.status;
+    
+    const modalEdicao = new bootstrap.Modal(document.getElementById("modalEdicao"));
+    modalEdicao.show();
+  }
+};
+
+// Função para atualizar um usuário
+document.getElementById("userEditForm").onsubmit = (event) => {
+  event.preventDefault();
+
+  const matricula = document.getElementById("editIndex").value;
+  const user = users.find(u => u.matricula == matricula);
+
+  if (user) {
+    user.nome = document.getElementById("editNome").value;
+    user.endereco = document.getElementById("editEndereco").value;
+    user.telefone = document.getElementById("editTelefone").value;
+    user.email = document.getElementById("editEmail").value;
+    user.senha = document.getElementById("editSenha").value;
+    user.tipo = document.getElementById("editTipo").value;
+    user.status = document.getElementById("editStatus").value;
+    
+    loadTableData();  // Recarregar a tabela com os dados atualizados
+
+    const modalEdicao = bootstrap.Modal.getInstance(document.getElementById("modalEdicao"));
+    modalEdicao.hide();  // Fechar o modal após salvar as alterações
+  }
+};
 
     const deleteUser = (matricula) => {
       const confirmDelete = confirm("Você tem certeza que deseja excluir este usuário?");
@@ -325,6 +376,10 @@
       const matricula = document.getElementById("consultaMatricula").value;
       const tipo = document.getElementById("consultaTipo").value;
       const status = document.getElementById("consultaStatus").value;
+
+      // Fechar o modal após a consulta (esse é o que você precisa adicionar)
+      const modalConsulta = bootstrap.Modal.getInstance(document.getElementById("modalConsulta"));
+      modalConsulta.hide();
 
       const filteredUsers = users.filter(user => {
         const matchesNome = nome ? user.nome.toLowerCase().includes(nome) : true;
