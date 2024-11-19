@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Despesas</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Lista de Despesas</h2>
+            <div>
+                <button id="btnConsultarDespesas" class="btn btn-info" data-bs-toggle="modal"
+                    data-bs-target="#modalConsultarDespesa">Consultar Despesas</button>
+                <button id="btnNovaDespesa" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalCadastroDespesa">Cadastrar Nova Despesa</button>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tipo de Despesa</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                    <th>Forma de Pagamento</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="expenseTableBody"></tbody>
+        </table>
+    </div>
+
+    <!-- Modal de Cadastro de Despesa -->
+    <div class="modal fade" id="modalCadastroDespesa" tabindex="-1" aria-labelledby="modalCadastroDespesaLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCadastroDespesaLabel">Cadastro de Despesa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="expenseForm">
+                        <div class="mb-3">
+                            <label for="tipoDespesa" class="form-label">Tipo de Despesa*</label>
+                            <input type="text" class="form-control" id="tipoDespesa" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="valorDespesa" class="form-label">Valor (R$)*</label>
+                            <input type="text" class="form-control" id="valorDespesa" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dataDespesa" class="form-label">Data*</label>
+                            <input type="date" class="form-control" id="dataDespesa" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formaPagamento" class="form-label">Forma de Pagamento*</label>
+                            <select class="form-select" id="formaPagamento" required>
+                                <option value="Crédito">Crédito</option>
+                                <option value="Débito">Débito</option>
+                                <option value="Pix">Pix</option>
+                                <option value="Dinheiro em espécie">Dinheiro em espécie</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descricaoDespesa" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="descricaoDespesa" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Cadastrar Despesa</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Consulta de Despesas -->
+    <div class="modal fade" id="modalConsultarDespesa" tabindex="-1" aria-labelledby="modalConsultarDespesaLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalConsultarDespesaLabel">Consultar Despesas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="filterForm">
+                        <div class="mb-3">
+                            <label for="filterTipoDespesa" class="form-label">Tipo de Despesa</label>
+                            <input type="text" class="form-control" id="filterTipoDespesa"
+                                placeholder="Ex.: Aluguel, Água">
+                        </div>
+                        <div class="mb-3">
+                            <label for="filterFormaPagamento" class="form-label">Forma de Pagamento</label>
+                            <select class="form-select" id="filterFormaPagamento">
+                                <option value="">Todos</option>
+                                <option value="Crédito">Crédito</option>
+                                <option value="Débito">Débito</option>
+                                <option value="Pix">Pix</option>
+                                <option value="Dinheiro em espécie">Dinheiro em espécie</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="filterDataEspecifica" class="form-label">Data Específica</label>
+                            <input type="date" class="form-control" id="filterDataEspecifica">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Despesa -->
+    <div class="modal fade" id="modalEditarDespesa" tabindex="-1" aria-labelledby="modalEditarDespesaLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarDespesaLabel">Editar Despesa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editExpenseForm">
+                        <div class="mb-3">
+                            <label for="editTipoDespesa" class="form-label">Tipo de Despesa*</label>
+                            <input type="text" class="form-control" id="editTipoDespesa" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editValorDespesa" class="form-label">Valor (R$)*</label>
+                            <input type="text" class="form-control" id="editValorDespesa" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDataDespesa" class="form-label">Data*</label>
+                            <input type="date" class="form-control" id="editDataDespesa" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editFormaPagamento" class="form-label">Forma de Pagamento*</label>
+                            <select class="form-select" id="editFormaPagamento" required>
+                                <option value="Crédito">Crédito</option>
+                                <option value="Débito">Débito</option>
+                                <option value="Pix">Pix</option>
+                                <option value="Dinheiro em espécie">Dinheiro em espécie</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDescricaoDespesa" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="editDescricaoDespesa" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Array inicial de despesas
+        let despesas = [
+            { tipo: "Confraternização", valor: 800.0, data: "2024-11-15", formaPagamento: "Pix", descricao: "Jantar em restaurante" },
+            { tipo: "Transporte", valor: 25.0, data: "2024-11-16", formaPagamento: "Dinheiro em espécie", descricao: "Ônibus" },
+            { tipo: "Fixos", valor: 200.0, data: "2024-11-05", formaPagamento: "Débito", descricao: "Água e Luz" },
+            { tipo: "Educação", valor: 500.0, data: "2024-11-10", formaPagamento: "Débito", descricao: "Curso online" },
+            { tipo: "Imprevistos", valor: 300.0, data: "2024-11-17", formaPagamento: "Pix", descricao: "Máquina de cortar cabelo" },
+            { tipo: "Compras", valor: 120.0, data: "2024-11-09", formaPagamento: "Crédito", descricao: "Hidratantes" },
+        ];
+
+        // Função para formatar valor em reais
+        function formatValor(valor) {
+            return `R$ ${valor.toFixed(2).replace(".", ",")}`;
+        }
+
+        // Função para formatar a data no formato dd/mm/yyyy
+        function formatarData(data) {
+            const [year, month, day] = data.split("-");
+            return `${day}/${month}/${year}`;
+        }
+
+        // Função para formatar a data no formato correto (para exibição na tabela)
+        function formatDate(date) {
+            return formatarData(date); // Usando a função para formatar a data
+        }
+
+        // Função para renderizar a tabela de despesas
+        function renderExpenseTable(expenseList = despesas) {
+            // Ordena a lista de despesas da mais recente para a mais antiga
+            expenseList.sort((a, b) => new Date(b.data) - new Date(a.data)); // Ordena pelo campo 'data'
+
+            const expenseTableBody = document.getElementById("expenseTableBody");
+            expenseTableBody.innerHTML = "";
+
+            expenseList.forEach((expense, index) => {
+                const row = expenseTableBody.insertRow();
+
+                row.innerHTML = `
+            <td>${expense.tipo}</td>
+            <td>${formatValor(expense.valor)}</td>
+            <td>${formatDate(expense.data)}</td> <!-- Formata a data para exibição -->
+            <td>${expense.formaPagamento}</td>
+            <td>${expense.descricao || "Sem descrição"}</td>
+            <td>
+                <button onclick="editarDespesa(${index})" class="btn btn-warning btn-sm">Editar</button>
+                <button onclick="excluirDespesa(${index})" class="btn btn-danger btn-sm">Excluir</button>
+            </td>
+        `;
+            });
+        }
+
+        // Função para adicionar uma nova despesa
+        function adicionarDespesa(despesa) {
+            despesas.push(despesa);
+            renderExpenseTable(); // Atualiza a tabela com a nova despesa
+        }
+
+        // Função para enviar o formulário de cadastro de despesa
+        document.getElementById("expenseForm").onsubmit = function (event) {
+            event.preventDefault();
+
+            const novaDespesa = {
+                tipo: document.getElementById("tipoDespesa").value,
+                valor: parseFloat(document.getElementById("valorDespesa").value),
+                data: document.getElementById("dataDespesa").value, // A data no formato 'yyyy-mm-dd'
+                formaPagamento: document.getElementById("formaPagamento").value,
+                descricao: document.getElementById("descricaoDespesa").value || "Sem descrição",
+            };
+
+            adicionarDespesa(novaDespesa);
+
+            // Fechar o modal de cadastro
+            const modalCadastroElement = document.getElementById("modalCadastroDespesa");
+            const modalCadastro = bootstrap.Modal.getInstance(modalCadastroElement);
+            modalCadastro.hide(); // Fecha o modal
+        };
+
+        // Função para editar uma despesa
+        function editarDespesa(index) {
+            const expense = despesas[index];
+
+            // Preencher os campos do modal com os dados da despesa selecionada
+            document.getElementById("editTipoDespesa").value = expense.tipo;
+            document.getElementById("editValorDespesa").value = expense.valor.toFixed(2);
+            document.getElementById("editDataDespesa").value = expense.data; // No formato 'yyyy-mm-dd' para o input
+            document.getElementById("editFormaPagamento").value = expense.formaPagamento;
+            document.getElementById("editDescricaoDespesa").value = expense.descricao;
+
+            // Configurar o formulário para salvar alterações
+            const editForm = document.getElementById("editExpenseForm");
+            editForm.onsubmit = function (event) {
+                event.preventDefault();
+
+                // Atualizar os dados da despesa com os valores do formulário
+                expense.tipo = document.getElementById("editTipoDespesa").value;
+                expense.valor = parseFloat(document.getElementById("editValorDespesa").value);
+                expense.data = document.getElementById("editDataDespesa").value; // No formato 'yyyy-mm-dd' para o input
+                expense.formaPagamento = document.getElementById("editFormaPagamento").value;
+                expense.descricao = document.getElementById("editDescricaoDespesa").value;
+
+                // Re-renderizar a tabela com os dados atualizados
+                renderExpenseTable();
+
+                // Fechar o modal de edição
+                const modalEditarElement = document.getElementById("modalEditarDespesa");
+                const modalEditar = bootstrap.Modal.getInstance(modalEditarElement);
+                modalEditar.hide(); // Fecha o modal
+            };
+
+            // Exibir o modal de edição
+            const modal = new bootstrap.Modal(document.getElementById("modalEditarDespesa"));
+            modal.show();
+        }
+
+        function filtrarDespesas(event) {
+            event.preventDefault(); // Impede o recarregamento da página
+
+            const tipoDespesa = document.getElementById("filterTipoDespesa").value.toLowerCase();
+            const formaPagamento = document.getElementById("filterFormaPagamento").value;
+            const dataEspecifica = document.getElementById("filterDataEspecifica").value;
+
+            const despesasFiltradas = despesas.filter(despesa => {
+                const tipoMatch = despesa.tipo.toLowerCase().includes(tipoDespesa);
+                const formaPagamentoMatch = !formaPagamento || despesa.formaPagamento === formaPagamento;
+                const dataMatch = !dataEspecifica || despesa.data === dataEspecifica;
+
+                return tipoMatch && formaPagamentoMatch && dataMatch;
+            });
+
+            renderExpenseTable(despesasFiltradas);
+
+            // Fecha o modal de consulta
+            const modalConsultarElement = document.getElementById("modalConsultarDespesa");
+            const modalConsultar = bootstrap.Modal.getInstance(modalConsultarElement);
+            modalConsultar.hide(); // Fecha o modal
+        }
+
+        // Adicionando o evento de submit para o filtro
+        document.getElementById("filterForm").onsubmit = filtrarDespesas;
+
+        // Função para excluir uma despesa
+        function excluirDespesa(index) {
+            despesas.splice(index, 1); // Remove a despesa do array
+            renderExpenseTable(); // Atualiza a tabela
+        }
+
+        // Renderizar a tabela de despesas ao carregar a página
+        renderExpenseTable();
+
+    </script>
+</body>
+
+</html>
