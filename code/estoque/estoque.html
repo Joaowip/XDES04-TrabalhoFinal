@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD de Produtos</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Lista de Produtos</h2>
+      <div>
+        <button id="btnConsultarProdutos" class="btn btn-info" data-bs-toggle="modal"
+          data-bs-target="#modalConsultarProduto">Consultar Produtos</button>
+        <button id="btnNovoProduto" class="btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#modalCadastroProduto">Cadastrar Novo Produto</button>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome do Produto</th>
+          <th>Quantidade</th>
+          <th>Fornecedor</th>
+          <th>Data de Validade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="productTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Modal de Cadastro de Produto -->
+  <div class="modal fade" id="modalCadastroProduto" tabindex="-1" aria-labelledby="modalCadastroProdutoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCadastroProdutoLabel">Cadastro de Produto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="productForm">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome do Produto*</label>
+              <input type="text" class="form-control" id="nome" required>
+            </div>
+            <div class="mb-3">
+              <label for="quantidade" class="form-label">Quantidade*</label>
+              <input type="number" class="form-control" id="quantidade" required>
+            </div>
+            <div class="mb-3">
+              <label for="fornecedor" class="form-label">Fornecedor*</label>
+              <input type="text" class="form-control" id="fornecedor" required>
+            </div>
+            <div class="mb-3">
+              <label for="dataValidade" class="form-label">Data de Validade*</label>
+              <input type="date" class="form-control" id="dataValidade" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Cadastrar Produto</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Consulta de Produtos -->
+  <div class="modal fade" id="modalConsultarProduto" tabindex="-1" aria-labelledby="modalConsultarProdutoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalConsultarProdutoLabel">Consultar Produtos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="filterForm">
+            <div class="mb-3">
+              <label for="filterNomeProduto" class="form-label">Nome do Produto</label>
+              <input type="text" class="form-control" id="filterNomeProduto" placeholder="Digite o nome do produto">
+            </div>
+            <div class="mb-3">
+              <label for="filterFornecedor" class="form-label">Fornecedor</label>
+              <input type="text" class="form-control" id="filterFornecedor" placeholder="Digite o fornecedor">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="filterForaDeEstoque">
+              <label for="filterForaDeEstoque" class="form-check-label">Somente Fora de Estoque</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Edição de Produto -->
+  <div class="modal fade" id="modalEditarProduto" tabindex="-1" aria-labelledby="modalEditarProdutoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarProdutoLabel">Editar Produto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editProductForm">
+            <div class="mb-3">
+              <label for="editNomeProduto" class="form-label">Nome do Produto*</label>
+              <input type="text" class="form-control" id="editNomeProduto" required>
+            </div>
+            <div class="mb-3">
+              <label for="editQuantidade" class="form-label">Quantidade*</label>
+              <input type="number" class="form-control" id="editQuantidade" required>
+            </div>
+            <div class="mb-3">
+              <label for="editFornecedor" class="form-label">Fornecedor*</label>
+              <input type="text" class="form-control" id="editFornecedor" required>
+            </div>
+            <div class="mb-3">
+              <label for="editDataValidade" class="form-label">Data de Validade*</label>
+              <input type="date" class="form-control" id="editDataValidade" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Salvar Alterações</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let produtos = [
+      { nome: "Gel Fixador", quantidade: 30, fornecedor: "Fornecedor A", dataValidade: "2025-05-12" },
+      { nome: "Shampoo Anticaspa", quantidade: 50, fornecedor: "Fornecedor B", dataValidade: "2024-09-22" },
+      { nome: "Cera Modeladora", quantidade: 40, fornecedor: "Fornecedor C", dataValidade: "2026-03-15" },
+      { nome: "Pente de Bolso", quantidade: 20, fornecedor: "Fornecedor D", dataValidade: "2027-01-10" },
+      { nome: "Navalha Profissional", quantidade: 10, fornecedor: "Fornecedor E", dataValidade: "2026-11-05" },
+      { nome: "Escova para Barba", quantidade: 0, fornecedor: "Fornecedor F", dataValidade: "2025-12-01" },
+    ];
+
+    function formatarData(data) {
+      const [year, month, day] = data.split("-");
+      return `${day}/${month}/${year}`;
+    }
+
+    function renderProductTable(productList = produtos) {
+      // Ordena a lista de produtos por nome
+      productList.sort((a, b) => a.nome.localeCompare(b.nome));
+
+      const tableBody = document.getElementById("productTableBody");
+      tableBody.innerHTML = "";
+
+      productList.forEach((produto, index) => {
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+      <td>${produto.nome}</td>
+      <td>${produto.quantidade}</td>
+      <td>${produto.fornecedor}</td>
+      <td>${formatarData(produto.dataValidade)}</td>
+      <td>
+        <button class="btn btn-warning" onclick="editProduct(${index})">Editar</button>
+        <button class="btn btn-danger" onclick="deleteProduct(${index})">Excluir</button>
+      </td>
+    `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    function editProduct(index) {
+      const produto = produtos[index];
+
+      // Preenche os campos de edição com os dados do produto
+      document.getElementById("editNomeProduto").value = produto.nome;
+      document.getElementById("editQuantidade").value = produto.quantidade;
+      document.getElementById("editFornecedor").value = produto.fornecedor;
+      document.getElementById("editDataValidade").value = produto.dataValidade;
+
+      // Abre o modal de edição
+      const modal = new bootstrap.Modal(document.getElementById("modalEditarProduto"));
+      modal.show(); // Certifique-se de que isso está sendo chamado
+
+      // Configura o evento de submit para salvar as alterações no produto
+      const form = document.getElementById("editProductForm");
+      form.onsubmit = function (e) {
+        e.preventDefault();
+
+        // Atualiza o produto com os novos valores
+        produto.nome = document.getElementById("editNomeProduto").value;
+        produto.quantidade = document.getElementById("editQuantidade").value;
+        produto.fornecedor = document.getElementById("editFornecedor").value;
+        produto.dataValidade = document.getElementById("editDataValidade").value;
+
+        // Re-renderiza a tabela com os produtos atualizados
+        renderProductTable();
+
+        // Fecha o modal de edição
+        modal.hide();
+      };
+    }
+
+    function deleteProduct(index) {
+      produtos.splice(index, 1);
+      renderProductTable();
+    }
+
+    // Cadastro de produto
+    document.getElementById("productForm").onsubmit = function (e) {
+      e.preventDefault();
+
+      // Pegando os valores do formulário
+      const nome = document.getElementById("nome").value;
+      const quantidade = document.getElementById("quantidade").value;
+      const fornecedor = document.getElementById("fornecedor").value;
+      const dataValidade = document.getElementById("dataValidade").value;
+
+      // Adiciona o novo produto ao array
+      produtos.push({ nome, quantidade, fornecedor, dataValidade });
+
+      // Re-renderiza a tabela
+      renderProductTable();
+
+      // Fechando o modal após o submit
+      const modalCadastroProduto = bootstrap.Modal.getInstance(document.getElementById("modalCadastroProduto"));
+      modalCadastroProduto.hide();
+    };
+
+    // Filtro
+    document.getElementById("filterForm").onsubmit = function (e) {
+      e.preventDefault();
+
+      const nomeFiltro = document.getElementById("filterNomeProduto").value.toLowerCase();
+      const fornecedorFiltro = document.getElementById("filterFornecedor").value.toLowerCase();
+      const foraDeEstoque = document.getElementById("filterForaDeEstoque").checked;
+
+      const filteredProducts = produtos.filter(produto => {
+        return (
+          produto.nome.toLowerCase().includes(nomeFiltro) &&
+          produto.fornecedor.toLowerCase().includes(fornecedorFiltro) &&
+          (foraDeEstoque ? produto.quantidade === 0 : true)  // Aqui é que ocorre a verificação
+        );
+      });
+
+      renderProductTable(filteredProducts);
+
+      // Fecha o modal de consulta de produtos
+      const modalConsultarProduto = bootstrap.Modal.getInstance(document.getElementById("modalConsultarProduto"));
+      modalConsultarProduto.hide();
+    };
+
+    // Inicializa a tabela ao carregar
+    renderProductTable();
+
+  </script>
+</body>
+
+</html>
