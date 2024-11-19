@@ -4,12 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRUD de Agendamentos</title>
+  <title>Barbearia - Agendamentos</title>
   <link rel="stylesheet" href="../style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Ícone da página -->
+  <link rel="icon" href="../imagens/icon.png" type="image/png">
 </head>
 
 <body>
+  <!-- Barra de Navegação (Header) -->
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+    <div class="container d-flex justify-content-between align-items-center w-100">
+      <!-- Logotipo -->
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <img src="../imagens/logo.png" alt="Logotipo" height="80"> <!-- Logotipo da Barbearia -->
+      </a>
+
+      <!-- Título Centralizado -->
+      <h1 class="text-center mb-4 flex-grow-1">Sistema de Gestão da Barbearia</h1>
+
+      <!-- Ícone do Usuário, Alinhado à Direita -->
+      <div class="d-flex align-items-center">
+        <a href="#" class="nav-link text-white">
+          <img src="../imagens/icon.png" alt="Ícone da Barbearia" height="80"> <!-- Ícone da Barbearia -->
+        </a>
+      </div>
+    </div>
+  </header>
+
   <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h2>Lista de Agendamentos</h2>
@@ -27,6 +50,7 @@
           <th>Cliente</th>
           <th>Data</th>
           <th>Hora</th>
+          <th>Observações</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -149,20 +173,37 @@
     // Renderiza a tabela de agendamentos
     function renderAgendamentoTable(agendaList = agendamentos) {
       const agendamentoTableBody = document.getElementById("appointmentTableBody");
-      agendamentoTableBody.innerHTML = "";
+      agendamentoTableBody.innerHTML = "";  // Limpa a tabela antes de renderizar novamente
 
+      // Ordena os agendamentos pela data e hora (do mais próximo para o mais distante)
+      agendaList.sort((a, b) => {
+        const dataA = new Date(`${a.data} ${a.hora}`);
+        const dataB = new Date(`${b.data} ${b.hora}`);
+        return dataA - dataB; // Ordena pela diferença de tempo
+      });
+
+      // Renderiza as linhas da tabela
       agendaList.forEach((agenda, index) => {
-        const row = agendamentoTableBody.insertRow();
+        const row = agendamentoTableBody.insertRow();  // Cria uma nova linha
+
+        // Adiciona os dados da linha (cliente, data, hora, observações)
         row.innerHTML = `
-          <td>${agenda.cliente}</td>
-          <td>${formatData(agenda.data)}</td>
-          <td>${agenda.hora}</td>
-          <td>
-            <button onclick="editarAgendamento(${index})" class="btn btn-warning btn-sm">Editar</button>
-            <button onclick="excluirAgendamento(${index})" class="btn btn-danger btn-sm">Excluir</button>
-          </td>`;
+      <td>${agenda.cliente}</td>
+      <td>${formatData(agenda.data)}</td>
+      <td>${agenda.hora}</td>
+      <td>${agenda.observacoes}</td>
+    `;
+
+        // Adiciona os botões de ações na última célula da linha
+        const actionsCell = row.insertCell();  // Cria a célula de ações
+        actionsCell.innerHTML = `
+      <button onclick="editarAgendamento(${index})" class="btn btn-warning btn-sm">Editar</button>
+      <button onclick="excluirAgendamento(${index})" class="btn btn-danger btn-sm">Excluir</button>
+    `;
       });
     }
+
+
 
     // Adiciona um novo agendamento
     document.getElementById("appointmentForm").onsubmit = function (event) {
@@ -245,36 +286,36 @@
     }
 
     // Função para filtrar agendamentos
-  function filtrarAgendamentos(event) {
-    event.preventDefault(); // Impede o comportamento padrão de envio do formulário
+    function filtrarAgendamentos(event) {
+      event.preventDefault(); // Impede o comportamento padrão de envio do formulário
 
-    const cliente = document.getElementById("filterCliente").value.toLowerCase();
-    const data = document.getElementById("filterData").value;
-    const hora = document.getElementById("filterHora").value;
+      const cliente = document.getElementById("filterCliente").value.toLowerCase();
+      const data = document.getElementById("filterData").value;
+      const hora = document.getElementById("filterHora").value;
 
-    const filteredAgendamentos = agendamentos
-      .filter(agendamento => {
-        return (
-          (cliente ? agendamento.cliente.toLowerCase().includes(cliente) : true) &&
-          (data ? agendamento.data === data : true) &&
-          (hora ? agendamento.hora === hora : true)
-        );
-      })
-      .sort((a, b) => {
-        // Ordenar por hora (crescente) primeiro
-        const horaA = a.hora.split(":").map(Number);
-        const horaB = b.hora.split(":").map(Number);
-        const minutoA = horaA[0] * 60 + horaA[1];
-        const minutoB = horaB[0] * 60 + horaB[1];
+      const filteredAgendamentos = agendamentos
+        .filter(agendamento => {
+          return (
+            (cliente ? agendamento.cliente.toLowerCase().includes(cliente) : true) &&
+            (data ? agendamento.data === data : true) &&
+            (hora ? agendamento.hora === hora : true)
+          );
+        })
+        .sort((a, b) => {
+          // Ordenar por hora (crescente) primeiro
+          const horaA = a.hora.split(":").map(Number);
+          const horaB = b.hora.split(":").map(Number);
+          const minutoA = horaA[0] * 60 + horaA[1];
+          const minutoB = horaB[0] * 60 + horaB[1];
 
-        return minutoA - minutoB; // Horários mais cedo primeiro
-      });
+          return minutoA - minutoB; // Horários mais cedo primeiro
+        });
 
-    renderAgendamentoTable(filteredAgendamentos); // Atualiza a tabela com a lista filtrada
-  }
+      renderAgendamentoTable(filteredAgendamentos); // Atualiza a tabela com a lista filtrada
+    }
 
-  // Event listener para o formulário de filtro
-  document.getElementById("filterAppointmentForm").addEventListener("submit", filtrarAgendamentos);
+    // Event listener para o formulário de filtro
+    document.getElementById("filterAppointmentForm").addEventListener("submit", filtrarAgendamentos);
 
     // Exclui um agendamento
     function excluirAgendamento(index) {

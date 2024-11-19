@@ -4,12 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRUD de Usuários</title>
+  <title>Barbearia - Usuário</title>
   <link rel="stylesheet" href="../style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Ícone da página -->
+  <link rel="icon" href="../imagens/icon.png" type="image/png">
 </head>
 
 <body>
+  <!-- Barra de Navegação (Header) -->
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+    <div class="container d-flex justify-content-between align-items-center w-100">
+      <!-- Logotipo -->
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <img src="../imagens/logo.png" alt="Logotipo" height="80"> <!-- Logotipo da Barbearia -->
+      </a>
+
+      <!-- Título Centralizado -->
+      <h1 class="text-center mb-4 flex-grow-1">Sistema de Gestão da Barbearia</h1>
+
+      <!-- Ícone do Usuário, Alinhado à Direita -->
+      <div class="d-flex align-items-center">
+        <a href="#" class="nav-link text-white">
+          <img src="../imagens/icon.png" alt="Ícone da Barbearia" height="80"> <!-- Ícone da Barbearia -->
+        </a>
+      </div>
+    </div>
+  </header>
+
   <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h2>Lista de usuários</h2>
@@ -219,6 +242,12 @@
       return Math.floor(1000 + Math.random() * 9000); // Gera um número aleatório entre 1000 e 9999
     };
 
+    // Função para formatar data no formato dd/mm/yyyy
+    const formatarDataNascimento = (data) => {
+      const [ano, mes, dia] = data.split("-");
+      return `${dia}/${mes}/${ano}`;
+    };
+
     let users = [
       {
         matricula: 3756,
@@ -267,22 +296,22 @@
       users.forEach(user => {
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td>${user.matricula}</td>
-          <td>${user.nome}</td>
-          <td>${user.cpf}</td>
-          <td>${user.dataNascimento}</td>
-          <td>${user.endereco}</td>
-          <td>${user.genero}</td>
-          <td>${user.telefone}</td>
-          <td>${user.email}</td>
-          <td>${user.senha}</td>
-          <td>${user.tipo}</td>
-          <td>${user.status}</td>
-          <td>
-            <button class="btn btn-warning" onclick="editUser(${user.matricula})">Editar</button>
-            <button class="btn btn-danger" onclick="deleteUser(${user.matricula})">Excluir</button>
-          </td>
-        `;
+      <td>${user.matricula}</td>
+      <td>${user.nome}</td>
+      <td>${user.cpf}</td>
+      <td>${formatarDataNascimento(user.dataNascimento)}</td>
+      <td>${user.endereco}</td>
+      <td>${user.genero}</td>
+      <td>${user.telefone}</td>
+      <td>${user.email}</td>
+      <td>${user.senha}</td>
+      <td>${user.tipo}</td>
+      <td>${user.status}</td>
+      <td>
+        <button class="btn btn-warning" onclick="editUser(${user.matricula})">Editar</button>
+        <button class="btn btn-danger" onclick="deleteUser(${user.matricula})">Excluir</button>
+      </td>
+    `;
         userTableBody.appendChild(row);
       });
     };
@@ -316,46 +345,46 @@
     window.onload = loadTableData;
 
     // Função para abrir o modal e preencher os campos
-const editUser = (matricula) => {
-  const user = users.find(u => u.matricula === matricula);
-  if (user) {
-    // Preencher os campos do modal com os dados do usuário
-    document.getElementById("editIndex").value = matricula;
-    document.getElementById("editNome").value = user.nome;
-    document.getElementById("editEndereco").value = user.endereco;
-    document.getElementById("editTelefone").value = user.telefone;
-    document.getElementById("editEmail").value = user.email;
-    document.getElementById("editSenha").value = user.senha;
-    document.getElementById("editTipo").value = user.tipo;
-    document.getElementById("editStatus").value = user.status;
-    
-    const modalEdicao = new bootstrap.Modal(document.getElementById("modalEdicao"));
-    modalEdicao.show();
-  }
-};
+    const editUser = (matricula) => {
+      const user = users.find(u => u.matricula === matricula);
+      if (user) {
+        // Preencher os campos do modal com os dados do usuário
+        document.getElementById("editIndex").value = matricula;
+        document.getElementById("editNome").value = user.nome;
+        document.getElementById("editEndereco").value = user.endereco;
+        document.getElementById("editTelefone").value = user.telefone;
+        document.getElementById("editEmail").value = user.email;
+        document.getElementById("editSenha").value = user.senha;
+        document.getElementById("editTipo").value = user.tipo;
+        document.getElementById("editStatus").value = user.status;
 
-// Função para atualizar um usuário
-document.getElementById("userEditForm").onsubmit = (event) => {
-  event.preventDefault();
+        const modalEdicao = new bootstrap.Modal(document.getElementById("modalEdicao"));
+        modalEdicao.show();
+      }
+    };
 
-  const matricula = document.getElementById("editIndex").value;
-  const user = users.find(u => u.matricula == matricula);
+    // Função para atualizar um usuário
+    document.getElementById("userEditForm").onsubmit = (event) => {
+      event.preventDefault();
 
-  if (user) {
-    user.nome = document.getElementById("editNome").value;
-    user.endereco = document.getElementById("editEndereco").value;
-    user.telefone = document.getElementById("editTelefone").value;
-    user.email = document.getElementById("editEmail").value;
-    user.senha = document.getElementById("editSenha").value;
-    user.tipo = document.getElementById("editTipo").value;
-    user.status = document.getElementById("editStatus").value;
-    
-    loadTableData();  // Recarregar a tabela com os dados atualizados
+      const matricula = document.getElementById("editIndex").value;
+      const user = users.find(u => u.matricula == matricula);
 
-    const modalEdicao = bootstrap.Modal.getInstance(document.getElementById("modalEdicao"));
-    modalEdicao.hide();  // Fechar o modal após salvar as alterações
-  }
-};
+      if (user) {
+        user.nome = document.getElementById("editNome").value;
+        user.endereco = document.getElementById("editEndereco").value;
+        user.telefone = document.getElementById("editTelefone").value;
+        user.email = document.getElementById("editEmail").value;
+        user.senha = document.getElementById("editSenha").value;
+        user.tipo = document.getElementById("editTipo").value;
+        user.status = document.getElementById("editStatus").value;
+
+        loadTableData();  // Recarregar a tabela com os dados atualizados
+
+        const modalEdicao = bootstrap.Modal.getInstance(document.getElementById("modalEdicao"));
+        modalEdicao.hide();  // Fechar o modal após salvar as alterações
+      }
+    };
 
     const deleteUser = (matricula) => {
       const confirmDelete = confirm("Você tem certeza que deseja excluir este usuário?");
