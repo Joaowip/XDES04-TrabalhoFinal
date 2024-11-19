@@ -1,43 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Agendamentos</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD de Agendamentos</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-    
-    <div class="header-buttons">
-        <h1>Lista de Agendamentos</h1>
-        <button class="cadastrar" onclick="window.location.href='cadastrar_agendamento.html'">Cadastrar Novo Agendamento</button>
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Lista de Agendamentos</h2>
+      <div>
+        <button id="btnConsultarAgendamentos" class="btn btn-info" data-bs-toggle="modal"
+          data-bs-target="#modalConsultarAgendamento">Consultar Agendamentos</button>
+        <button id="btnNovoAgendamento" class="btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#modalCadastroAgendamento">Cadastrar Novo Agendamento</button>
+      </div>
     </div>
-    <form id="filter-form">
-        <label for="filter-nome">Nome do Cliente:</label>
-        <input type="text" id="filter-nome">
 
-        <label for="filter-data">Data do Agendamento:</label>
-        <input type="date" id="filter-data">
-
-        <button type="button" id="btn-filtrar">Filtrar</button>
-        <button type="button" id="btn-limpar-filtro">Limpar Filtros</button>
-    </form>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Nome do Cliente</th>
-                <th>Data</th>
-                <th>Hora</th>
-                <th>Descrição</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody id="agendamentos-tabela">
-            <!-- Linhas dinâmicas serão adicionadas aqui -->
-        </tbody>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Data</th>
+          <th>Hora</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="appointmentTableBody"></tbody>
     </table>
+  </div>
 
-    <script src="scripts.js"></script>
+  <!-- Modal de Cadastro de Agendamento -->
+  <div class="modal fade" id="modalCadastroAgendamento" tabindex="-1" aria-labelledby="modalCadastroAgendamentoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCadastroAgendamentoLabel">Cadastro de Agendamento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="appointmentForm">
+            <div class="mb-3">
+              <label for="cliente" class="form-label">Cliente*</label>
+              <input type="text" class="form-control" id="cliente" required>
+            </div>
+            <div class="mb-3">
+              <label for="data" class="form-label">Data*</label>
+              <input type="date" class="form-control" id="data" required>
+            </div>
+            <div class="mb-3">
+              <label for="hora" class="form-label">Hora (HH:MM)*</label>
+              <input type="time" class="form-control" id="hora" required>
+            </div>
+            <div class="mb-3">
+              <label for="observacoes" class="form-label">Observações</label>
+              <textarea class="form-control" id="observacoes" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Cadastrar Agendamento</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Consulta de Agendamentos -->
+  <div class="modal fade" id="modalConsultarAgendamento" tabindex="-1" aria-labelledby="modalConsultarAgendamentoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalConsultarAgendamentoLabel">Consultar Agendamentos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="filterAppointmentForm">
+            <div class="mb-3">
+              <label for="filterCliente" class="form-label">Cliente</label>
+              <input type="text" class="form-control" id="filterCliente">
+            </div>
+            <div class="mb-3">
+              <label for="filterData" class="form-label">Data</label>
+              <input type="date" class="form-control" id="filterData">
+            </div>
+            <div class="mb-3">
+              <label for="filterHora" class="form-label">Hora (HH:MM)</label>
+              <input type="time" class="form-control" id="filterHora">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Edição de Agendamento -->
+  <div class="modal fade" id="modalEditarAgendamento" tabindex="-1" aria-labelledby="modalEditarAgendamentoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarAgendamentoLabel">Editar Agendamento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editAppointmentForm">
+            <div class="mb-3">
+              <label for="editCliente" class="form-label">Cliente*</label>
+              <input type="text" class="form-control" id="editCliente" required>
+            </div>
+            <div class="mb-3">
+              <label for="editData" class="form-label">Data*</label>
+              <input type="date" class="form-control" id="editData" required>
+            </div>
+            <div class="mb-3">
+              <label for="editHora" class="form-label">Hora (HH:MM)*</label>
+              <input type="time" class="form-control" id="editHora" required>
+            </div>
+            <div class="mb-3">
+              <label for="editObservacoes" class="form-label">Observações</label>
+              <textarea class="form-control" id="editObservacoes" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Salvar Alterações</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let agendamentos = [
+      { cliente: "João Silva", data: "2024-11-20", hora: "14:30", observacoes: "Revisão geral" },
+      { cliente: "Maria Oliveira", data: "2024-11-21", hora: "10:00", observacoes: "Corte de cabelo" },
+      { cliente: "Carlos Souza", data: "2024-11-22", hora: "09:00", observacoes: "" }
+    ];
+
+    // Função para formatar data no formato DD/MM/AAAA
+    function formatData(data) {
+      const [ano, mes, dia] = data.split("-");
+      return `${dia}/${mes}/${ano}`;
+    }
+
+    // Renderiza a tabela de agendamentos
+    function renderAgendamentoTable(agendaList = agendamentos) {
+      const agendamentoTableBody = document.getElementById("appointmentTableBody");
+      agendamentoTableBody.innerHTML = "";
+
+      agendaList.forEach((agenda, index) => {
+        const row = agendamentoTableBody.insertRow();
+        row.innerHTML = `
+          <td>${agenda.cliente}</td>
+          <td>${formatData(agenda.data)}</td>
+          <td>${agenda.hora}</td>
+          <td>
+            <button onclick="editarAgendamento(${index})" class="btn btn-warning btn-sm">Editar</button>
+            <button onclick="excluirAgendamento(${index})" class="btn btn-danger btn-sm">Excluir</button>
+          </td>`;
+      });
+    }
+
+    // Adiciona um novo agendamento
+    document.getElementById("appointmentForm").onsubmit = function (event) {
+      event.preventDefault();
+
+      const novoAgendamento = {
+        cliente: document.getElementById("cliente").value,
+        data: document.getElementById("data").value,
+        hora: document.getElementById("hora").value,
+        observacoes: document.getElementById("observacoes").value
+      };
+
+      agendamentos.push(novoAgendamento);
+
+      // Ordenar a lista de agendamentos por data e hora
+      agendamentos.sort((a, b) => {
+        // Comparar as datas primeiro
+        const dataA = new Date(a.data);
+        const dataB = new Date(b.data);
+        if (dataA.getTime() !== dataB.getTime()) {
+          return dataA.getTime() - dataB.getTime(); // Ordenar por data
+        }
+
+        // Se as datas forem iguais, comparar as horas
+        const [horaA, minutoA] = a.hora.split(":").map(Number);
+        const [horaB, minutoB] = b.hora.split(":").map(Number);
+        const minutoATotal = horaA * 60 + minutoA;
+        const minutoBTotal = horaB * 60 + minutoB;
+
+        return minutoATotal - minutoBTotal; // Ordenar por hora
+      });
+
+      renderAgendamentoTable(); // Atualiza a tabela com a lista ordenada
+
+      const modal = bootstrap.Modal.getInstance(document.getElementById("modalCadastroAgendamento"));
+      modal.hide();
+    };
+
+    // Edita um agendamento existente
+    function editarAgendamento(index) {
+      const agendamento = agendamentos[index];
+      document.getElementById("editCliente").value = agendamento.cliente;
+      document.getElementById("editData").value = agendamento.data;
+      document.getElementById("editHora").value = agendamento.hora;
+      document.getElementById("editObservacoes").value = agendamento.observacoes;
+
+      document.getElementById("editAppointmentForm").onsubmit = function (event) {
+        event.preventDefault();
+        agendamento.cliente = document.getElementById("editCliente").value;
+        agendamento.data = document.getElementById("editData").value;
+        agendamento.hora = document.getElementById("editHora").value;
+        agendamento.observacoes = document.getElementById("editObservacoes").value;
+
+        // Reordenar os agendamentos após edição (por data e hora)
+        agendamentos.sort((a, b) => {
+          // Comparar as datas primeiro
+          const dataA = new Date(a.data);
+          const dataB = new Date(b.data);
+          if (dataA.getTime() !== dataB.getTime()) {
+            return dataA.getTime() - dataB.getTime(); // Ordenar por data
+          }
+
+          // Se as datas forem iguais, comparar as horas
+          const [horaA, minutoA] = a.hora.split(":").map(Number);
+          const [horaB, minutoB] = b.hora.split(":").map(Number);
+          const minutoATotal = horaA * 60 + minutoA;
+          const minutoBTotal = horaB * 60 + minutoB;
+
+          return minutoATotal - minutoBTotal; // Ordenar por hora
+        });
+
+        renderAgendamentoTable(); // Atualiza a tabela com a lista reordenada
+
+        const modal = bootstrap.Modal.getInstance(document.getElementById("modalEditarAgendamento"));
+        modal.hide();
+      };
+
+      const modal = new bootstrap.Modal(document.getElementById("modalEditarAgendamento"));
+      modal.show();
+    }
+
+    // Função para filtrar agendamentos
+  function filtrarAgendamentos(event) {
+    event.preventDefault(); // Impede o comportamento padrão de envio do formulário
+
+    const cliente = document.getElementById("filterCliente").value.toLowerCase();
+    const data = document.getElementById("filterData").value;
+    const hora = document.getElementById("filterHora").value;
+
+    const filteredAgendamentos = agendamentos
+      .filter(agendamento => {
+        return (
+          (cliente ? agendamento.cliente.toLowerCase().includes(cliente) : true) &&
+          (data ? agendamento.data === data : true) &&
+          (hora ? agendamento.hora === hora : true)
+        );
+      })
+      .sort((a, b) => {
+        // Ordenar por hora (crescente) primeiro
+        const horaA = a.hora.split(":").map(Number);
+        const horaB = b.hora.split(":").map(Number);
+        const minutoA = horaA[0] * 60 + horaA[1];
+        const minutoB = horaB[0] * 60 + horaB[1];
+
+        return minutoA - minutoB; // Horários mais cedo primeiro
+      });
+
+    renderAgendamentoTable(filteredAgendamentos); // Atualiza a tabela com a lista filtrada
+  }
+
+  // Event listener para o formulário de filtro
+  document.getElementById("filterAppointmentForm").addEventListener("submit", filtrarAgendamentos);
+
+    // Exclui um agendamento
+    function excluirAgendamento(index) {
+      agendamentos.splice(index, 1);
+      renderAgendamentoTable();
+    }
+
+    // Inicializa a tabela ao carregar a página
+    renderAgendamentoTable();
+  </script>
 </body>
+
 </html>

@@ -1,70 +1,344 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Atendimentos</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD de Atendimentos</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>Lista de Atendimentos</h1>
-            <button class="cadastrar" onclick="window.location.href='cadastrar_atendimento.html'">Cadastrar Novo Atendimento</button>
-        </header>
-
-        <section class="filtros">
-            <form id="filter-form">
-                <div class="form-group">
-                    <label for="filter-cliente">Cliente:</label>
-                    <input type="text" id="filter-cliente" placeholder="Nome do cliente">
-                </div>
-                <div class="form-group">
-                    <label for="filter-data">Data do Atendimento:</label>
-                    <input type="date" id="filter-data">
-                </div>
-                <div class="form-group">
-                    <label for="filter-servico">Serviço:</label>
-                    <select id="filter-servico">
-                        <option value="">Todos</option>
-                        <option value="Cabelo">Cabelo</option>
-                        <option value="Barba">Barba</option>
-                        <option value="Bigode">Bigode</option>
-                        <option value="Sobrancelha">Sobrancelha</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="filter-barbeiro">Barbeiro Responsável:</label>
-                    <input type="text" id="filter-barbeiro" placeholder="Nome do barbeiro">
-                </div>
-                <div class="form-buttons">
-                    <button type="button" id="btn-filtrar">Filtrar</button>
-                    <button type="button" id="btn-limpar-filtro">Limpar Filtros</button>
-                </div>
-            </form>
-        </section>
-
-        <section class="tabela-atendimentos">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cliente</th>
-                        <th>Data</th>
-                        <th>Hora</th>
-                        <th>Serviço</th>
-                        <th>Valor</th>
-                        <th>Barbeiro</th>
-                        <th>Forma de Pagamento</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="atendimentos-tabela">
-                    <!-- Linhas dinâmicas serão preenchidas pelo JavaScript -->
-                </tbody>
-            </table>
-        </section>
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Lista de Atendimentos</h2>
+      <div>
+        <button id="btnConsultarAtendimentos" class="btn btn-info" data-bs-toggle="modal"
+          data-bs-target="#modalConsultarAtendimento">Consultar Atendimentos</button>
+        <button id="btnNovoAtendimento" class="btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#modalCadastroAtendimento">Cadastrar Novo Atendimento</button>
+      </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Data</th>
+          <th>Hora</th>
+          <th>Serviço</th>
+          <th>Barbeiro Responsável</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="atendimentoTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Modal de Cadastro de Atendimento -->
+  <div class="modal fade" id="modalCadastroAtendimento" tabindex="-1" aria-labelledby="modalCadastroAtendimentoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCadastroAtendimentoLabel">Cadastro de Atendimento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="clientForm">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Cliente*</label>
+              <input type="text" class="form-control" id="nome" required>
+            </div>
+            <div class="mb-3">
+              <label for="data" class="form-label">Data*</label>
+              <input type="date" class="form-control" id="data" required>
+            </div>
+            <div class="mb-3">
+              <label for="hora" class="form-label">Hora*</label>
+              <input type="time" class="form-control" id="hora" required>
+            </div>
+            <div class="mb-3">
+              <label for="servico" class="form-label">Serviço*</label>
+              <select class="form-select" id="servico" required>
+                <option value="Cabelo">Cabelo</option>
+                <option value="Barba">Barba</option>
+                <option value="Bigode">Bigode</option>
+                <option value="Sobrancelha">Sobrancelha</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="valorCobrado" class="form-label">Valor Cobrado*</label>
+              <input type="text" class="form-control" id="valorCobrado" required>
+            </div>
+            <div class="mb-3">
+              <label for="barbeiroResponsavel" class="form-label">Barbeiro Responsável*</label>
+              <input type="text" class="form-control" id="barbeiroResponsavel" required>
+            </div>
+            <div class="mb-3">
+              <label for="formaPagamento" class="form-label">Forma de Pagamento*</label>
+              <select class="form-select" id="formaPagamento" required>
+                <option value="PIX">PIX</option>
+                <option value="Dinheiro em espécie">Dinheiro em espécie</option>
+                <option value="Crédito">Crédito</option>
+                <option value="Débito">Débito</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Cadastrar Atendimento</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Consulta de Atendimentos -->
+  <div class="modal fade" id="modalConsultarAtendimento" tabindex="-1" aria-labelledby="modalConsultarAtendimentoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalConsultarAtendimentoLabel">Consultar Atendimentos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="filterForm">
+            <div class="mb-3">
+              <label for="filterCliente" class="form-label">Cliente</label>
+              <input type="text" class="form-control" id="filterCliente">
+            </div>
+            <div class="mb-3">
+              <label for="filterData" class="form-label">Data</label>
+              <input type="date" class="form-control" id="filterData">
+            </div>
+            <div class="mb-3">
+              <label for="filterHora" class="form-label">Hora</label>
+              <input type="time" class="form-control" id="filterHora">
+            </div>
+            <div class="mb-3">
+              <label for="filterServico" class="form-label">Serviço</label>
+              <input type="text" class="form-control" id="filterServico">
+            </div>
+            <div class="mb-3">
+              <label for="filterBarbeiro" class="form-label">Barbeiro Responsável</label>
+              <input type="text" class="form-control" id="filterBarbeiro">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Edição de Atendimento -->
+  <div class="modal fade" id="modalEditarAtendimento" tabindex="-1" aria-labelledby="modalEditarAtendimentoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarAtendimentoLabel">Editar Atendimento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editAtendimentoForm">
+            <div class="mb-3">
+              <label for="editCliente" class="form-label">Cliente*</label>
+              <input type="text" class="form-control" id="editCliente" required>
+            </div>
+            <div class="mb-3">
+              <label for="editData" class="form-label">Data*</label>
+              <input type="date" class="form-control" id="editData" required>
+            </div>
+            <div class="mb-3">
+              <label for="editHora" class="form-label">Hora*</label>
+              <input type="time" class="form-control" id="editHora" required>
+            </div>
+            <div class="mb-3">
+              <label for="editServico" class="form-label">Serviço*</label>
+              <select class="form-select" id="editServico" required>
+                <option value="Cabelo">Cabelo</option>
+                <option value="Barba">Barba</option>
+                <option value="Bigode">Bigode</option>
+                <option value="Sobrancelha">Sobrancelha</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="editBarbeiroResponsavel" class="form-label">Barbeiro Responsável*</label>
+              <input type="text" class="form-control" id="editBarbeiroResponsavel" required>
+            </div>
+            <button type="submit" class="btn btn-warning w-100">Salvar Alterações</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let atendimentos = [
+      { cliente: "João Silva", data: "2024-11-15", hora: "10:00", servico: "Barba", barbeiroResponsavel: "Carlos" },
+      { cliente: "Maria Oliveira", data: "2024-11-16", hora: "14:00", servico: "Sobrancelha", barbeiroResponsavel: "Ricardo" },
+      { cliente: "Carlos Souza", data: "2024-11-17", hora: "16:00", servico: "Bigode", barbeiroResponsavel: "Eduardo" }
+    ];
+
+    // Função para formatar a data
+    function formatData(data) {
+      const [year, month, day] = data.split("-");
+      return `${day}/${month}/${year}`;
+    }
+
+    // Função para formatar a hora
+    function formatHora(hora) {
+      return hora.replace(/(\d{2}):(\d{2})/, "$1h$2");
+    }
+
+    // Função para renderizar a tabela de atendimentos
+    function renderAtendimentoTable(atendimentoList = atendimentos) {
+      const atendimentoTableBody = document.getElementById("atendimentoTableBody");
+      atendimentoTableBody.innerHTML = "";
+
+      atendimentoList.forEach((atendimento, index) => {
+        const row = atendimentoTableBody.insertRow();
+        row.innerHTML = `
+          <td>${atendimento.cliente}</td>
+          <td>${formatData(atendimento.data)}</td>
+          <td>${formatHora(atendimento.hora)}</td>
+          <td>${atendimento.servico}</td>
+          <td>${atendimento.barbeiroResponsavel}</td>
+          <td>
+            <button onclick="editarAtendimento(${index})" class="btn btn-warning btn-sm">Editar</button>
+            <button onclick="excluirAtendimento(${index})" class="btn btn-danger btn-sm">Excluir</button>
+          </td>
+        `;
+      });
+    }
+
+    // Função para ordenar os atendimentos por data e hora
+    function ordenarAtendimentos() {
+      atendimentos.sort((a, b) => {
+        // Comparar as datas
+        const dataA = new Date(a.data);
+        const dataB = new Date(b.data);
+        if (dataA.getTime() !== dataB.getTime()) {
+          return dataA.getTime() - dataB.getTime(); // Ordenar por data
+        }
+
+        // Se as datas forem iguais, comparar as horas
+        const [horaA, minutoA] = a.hora.split(":").map(Number);
+        const [horaB, minutoB] = b.hora.split(":").map(Number);
+        const minutoATotal = horaA * 60 + minutoA;
+        const minutoBTotal = horaB * 60 + minutoB;
+
+        return minutoATotal - minutoBTotal; // Ordenar por hora
+      });
+    }
+
+    // Função para adicionar um novo atendimento
+    function adicionarAtendimento(atendimento) {
+      atendimentos.push(atendimento);
+      ordenarAtendimentos(); // Ordenar após adicionar
+      renderAtendimentoTable();
+    }
+
+    // Função para enviar o formulário de cadastro de atendimento
+    document.getElementById("clientForm").onsubmit = function (event) {
+      event.preventDefault();
+
+      const novoAtendimento = {
+        cliente: document.getElementById("nome").value,
+        data: document.getElementById("data").value,
+        hora: document.getElementById("hora").value,
+        servico: document.getElementById("servico").value,
+        barbeiroResponsavel: document.getElementById("barbeiroResponsavel").value,
+        valorCobrado: document.getElementById("valorCobrado").value,
+        formaPagamento: document.getElementById("formaPagamento").value,
+      };
+
+      adicionarAtendimento(novoAtendimento);
+
+      // Fechar o modal de cadastro
+      const modalCadastroElement = document.getElementById("modalCadastroAtendimento");
+      const modalCadastro = bootstrap.Modal.getInstance(modalCadastroElement);
+      modalCadastro.hide();  // Fechar o modal após o cadastro
+    };
+
+    // Função para editar um atendimento
+    function editarAtendimento(index) {
+      const atendimento = atendimentos[index];
+
+      document.getElementById("editCliente").value = atendimento.cliente;
+      document.getElementById("editData").value = atendimento.data;
+      document.getElementById("editHora").value = atendimento.hora;
+      document.getElementById("editServico").value = atendimento.servico;
+      document.getElementById("editBarbeiroResponsavel").value = atendimento.barbeiroResponsavel;
+
+      const editForm = document.getElementById("editAtendimentoForm");
+      editForm.onsubmit = function (event) {
+        event.preventDefault();
+
+        atendimento.cliente = document.getElementById("editCliente").value;
+        atendimento.data = document.getElementById("editData").value;
+        atendimento.hora = document.getElementById("editHora").value;
+        atendimento.servico = document.getElementById("editServico").value;
+        atendimento.barbeiroResponsavel = document.getElementById("editBarbeiroResponsavel").value;
+
+        ordenarAtendimentos(); // Ordenar após editar
+        renderAtendimentoTable();
+
+        // Fechar o modal de edição
+        const modalEditarElement = document.getElementById("modalEditarAtendimento");
+        const modalEditar = bootstrap.Modal.getInstance(modalEditarElement);
+        modalEditar.hide();  // Fechar o modal após salvar as alterações
+      };
+
+      const modal = new bootstrap.Modal(document.getElementById("modalEditarAtendimento"));
+      modal.show();
+    }
+
+    // Função para filtrar os atendimentos
+    function filtrarAtendimentos() {
+      const cliente = document.getElementById("filterCliente").value.toLowerCase();
+      const data = document.getElementById("filterData").value;
+      const hora = document.getElementById("filterHora").value;
+      const servico = document.getElementById("filterServico").value.toLowerCase();
+      const barbeiro = document.getElementById("filterBarbeiro").value.toLowerCase();
+
+      const filteredAtendimentos = atendimentos.filter(atendimento => {
+        return (
+          (cliente ? atendimento.cliente.toLowerCase().includes(cliente) : true) &&
+          (data ? atendimento.data === data : true) &&
+          (hora ? atendimento.hora === hora : true) &&
+          (servico ? atendimento.servico.toLowerCase().includes(servico) : true) &&
+          (barbeiro ? atendimento.barbeiroResponsavel.toLowerCase().includes(barbeiro) : true)
+        );
+      });
+
+      ordenarAtendimentos(); // Ordenar após filtrar
+      renderAtendimentoTable(filteredAtendimentos);
+    }
+
+    // Enviar o filtro de consulta
+    document.getElementById("filterForm").onsubmit = function (event) {
+      event.preventDefault();
+      filtrarAtendimentos();
+
+      // Fechar o modal de consulta - ajustando a criação da instância
+      const modalConsultaElement = document.getElementById("modalConsultarAtendimento");
+      const modalConsulta = bootstrap.Modal.getInstance(modalConsultaElement);
+      modalConsulta.hide();  // Fechar o modal após aplicar o filtro
+    };
+
+    // Função para excluir um atendimento
+    function excluirAtendimento(index) {
+      atendimentos.splice(index, 1);
+      ordenarAtendimentos(); // Ordenar após excluir
+      renderAtendimentoTable();
+    }
+
+    // Inicializar a tabela com os dados
+    renderAtendimentoTable();
+  </script>
+
 </body>
+
 </html>
