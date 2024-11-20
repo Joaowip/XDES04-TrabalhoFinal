@@ -203,8 +203,6 @@
       });
     }
 
-
-
     // Adiciona um novo agendamento
     document.getElementById("appointmentForm").onsubmit = function (event) {
       event.preventDefault();
@@ -312,6 +310,11 @@
         });
 
       renderAgendamentoTable(filteredAgendamentos); // Atualiza a tabela com a lista filtrada
+
+      // Fecha o modal de consulta
+      const modalConsultaElement = document.getElementById("modalConsultarAgendamento");
+      const modalConsulta = bootstrap.Modal.getInstance(modalConsultaElement);
+      modalConsulta.hide(); // Fechar o modal após aplicar o filtro
     }
 
     // Event listener para o formulário de filtro

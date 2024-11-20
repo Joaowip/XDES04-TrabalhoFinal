@@ -51,6 +51,7 @@
           <th>Data</th>
           <th>Hora</th>
           <th>Serviço</th>
+          <th>Valor do Serviço</th>
           <th>Barbeiro Responsável</th>
           <th>Ações</th>
         </tr>
@@ -199,10 +200,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     let atendimentos = [
-      { cliente: "João Silva", data: "2024-11-15", hora: "10:00", servico: "Barba", barbeiroResponsavel: "Carlos" },
-      { cliente: "Maria Oliveira", data: "2024-11-16", hora: "14:00", servico: "Sobrancelha", barbeiroResponsavel: "Ricardo" },
-      { cliente: "Carlos Souza", data: "2024-11-17", hora: "16:00", servico: "Bigode", barbeiroResponsavel: "Eduardo" }
+      { cliente: "João Silva", data: "2024-11-15", hora: "10:00", servico: "Barba", valorCobrado: "40.00", barbeiroResponsavel: "Carlos" },
+      { cliente: "Maria Oliveira", data: "2024-11-16", hora: "14:00", servico: "Sobrancelha", valorCobrado: "30.00", barbeiroResponsavel: "Ricardo" },
+      { cliente: "Carlos Souza", data: "2024-11-17", hora: "16:00", servico: "Bigode", valorCobrado: "20.00", barbeiroResponsavel: "Eduardo" }
     ];
+
 
     // Função para formatar a data
     function formatData(data) {
@@ -223,18 +225,20 @@
       atendimentoList.forEach((atendimento, index) => {
         const row = atendimentoTableBody.insertRow();
         row.innerHTML = `
-          <td>${atendimento.cliente}</td>
-          <td>${formatData(atendimento.data)}</td>
-          <td>${formatHora(atendimento.hora)}</td>
-          <td>${atendimento.servico}</td>
-          <td>${atendimento.barbeiroResponsavel}</td>
-          <td>
-            <button onclick="editarAtendimento(${index})" class="btn btn-warning btn-sm">Editar</button>
-            <button onclick="excluirAtendimento(${index})" class="btn btn-danger btn-sm">Excluir</button>
-          </td>
-        `;
+      <td>${atendimento.cliente}</td>
+      <td>${formatData(atendimento.data)}</td>
+      <td>${formatHora(atendimento.hora)}</td>
+      <td>${atendimento.servico}</td>
+      <td>R$ ${parseFloat(atendimento.valorCobrado).toFixed(2)}</td>
+      <td>${atendimento.barbeiroResponsavel}</td>
+      <td>
+        <button onclick="editarAtendimento(${index})" class="btn btn-warning btn-sm">Editar</button>
+        <button onclick="excluirAtendimento(${index})" class="btn btn-danger btn-sm">Excluir</button>
+      </td>
+    `;
       });
     }
+
 
     // Função para ordenar os atendimentos por data e hora
     function ordenarAtendimentos() {
