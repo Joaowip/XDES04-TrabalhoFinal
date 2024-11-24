@@ -15,25 +15,69 @@
   <!-- Barra de Navegação (Header) -->
   <header class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div class="container d-flex justify-content-between align-items-center w-100">
-      <!-- Botão de Voltar Alinhado à Esquerda e mais para cima -->
       <a href="javascript:history.back()" class="navbar-brand d-flex align-items-center me-auto" style="margin-top: -10px;">
-        <img src="../../imagens/voltar.png" alt="Voltar" height="30"> <!-- Imagem de Voltar -->
+        <img src="../../imagens/voltar.png" alt="Voltar" height="30">
       </a>
-
-      <!-- Logotipo -->
       <a href="#" class="navbar-brand d-flex align-items-center">
-        <img src="../../imagens/logo.png" alt="Logotipo" height="80"> <!-- Logotipo da Barbearia -->
+        <img src="../../imagens/logo.png" alt="Logotipo" height="80">
       </a>
-
-      <!-- Título Centralizado -->
       <h1 class="text-center mb-4 flex-grow-1">Sistema de Gestão da Barbearia</h1>
-
-      <!-- Ícone do Usuário, Alinhado à Direita -->
       <div class="d-flex align-items-center">
         <a href="#" class="nav-link text-white">
-          <img src="../../imagens/icon.png" alt="Ícone da Barbearia" height="80"> <!-- Ícone da Barbearia -->
+          <img src="../../imagens/icon.png" alt="Ícone da Barbearia" height="80">
         </a>
       </div>
     </div>
   </header>
-<body>
+
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Guia para Controle de Estoque</h2>
+      <div>
+        <button id="btnGerarGuia" class="btn btn-primary">Gerar Guia</button>
+      </div>
+    </div>
+
+    <!-- Canvas para o gráfico -->
+    <canvas id="graficoEstoque" width="400" height="200" style="display:none;"></canvas>
+  </div>
+
+  <!-- Inclusão da biblioteca Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    // Função para exibir o gráfico ao clicar no botão
+    document.getElementById('btnGerarGuia').addEventListener('click', function () {
+      // Dados de exemplo para o gráfico
+      const labels = ['Cera Modeladora', 'Escova para Barba', 'Gel Fixador', 'Navalha Profissional', 'Pente de Bolso', 'Shampoo Anticaspa'];
+      const data = [40, 0, 30, 10, 20, 50]; // Quantidades por produto
+
+      // Configuração do gráfico
+      const ctx = document.getElementById('graficoEstoque').getContext('2d');
+      document.getElementById('graficoEstoque').style.display = 'block'; // Exibe o canvas
+
+      new Chart(ctx, {
+        type: 'bar', // Tipo do gráfico
+        data: {
+          labels: labels, // Produtos no eixo X
+          datasets: [{
+            label: 'Quantidade de Produtos',
+            data: data, // Quantidades no eixo Y
+            backgroundColor: 'rgba(54, 162, 235, 0.5)', // Cor das barras
+            borderColor: 'rgba(54, 162, 235, 1)', // Cor das bordas
+            borderWidth: 1 // Espessura das bordas
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true // Começa do zero
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
