@@ -2829,6 +2829,45 @@
       ],
       "value": "16:40"
     }, {
+      "id": "ad6fe8e1-aeb3-4d89-b61f-cf11412619a6",
+      "comment": "",
+      "command": "click",
+      "target": "id=servicoCabelo",
+      "targets": [
+        ["id=servicoCabelo", "id"],
+        ["css=#servicoCabelo", "css:finder"],
+        ["xpath=//input[@id='servicoCabelo']", "xpath:attributes"],
+        ["xpath=//form[@id='clientForm']/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4cca7a5f-1b94-4ad6-b977-83a3e2a41efe",
+      "comment": "",
+      "command": "click",
+      "target": "id=servicoBarba",
+      "targets": [
+        ["id=servicoBarba", "id"],
+        ["css=#servicoBarba", "css:finder"],
+        ["xpath=//input[@id='servicoBarba']", "xpath:attributes"],
+        ["xpath=//form[@id='clientForm']/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6cec9059-ee20-49ca-97b0-b6b8396b3d62",
+      "comment": "",
+      "command": "click",
+      "target": "id=servicoBigode",
+      "targets": [
+        ["id=servicoBigode", "id"],
+        ["css=#servicoBigode", "css:finder"],
+        ["xpath=//input[@id='servicoBigode']", "xpath:attributes"],
+        ["xpath=//form[@id='clientForm']/div[4]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
       "id": "152b0adc-39ee-4781-be0c-7b514ad42575",
       "comment": "",
       "command": "click",
@@ -2961,29 +3000,16 @@
       ],
       "value": "João"
     }, {
-      "id": "3efefab1-5666-4e5f-8632-b676ddd2b720",
+      "id": "b4f96a56-cc1f-4491-9ef6-160a88ff2dbe",
       "comment": "",
       "command": "click",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
-        ["css=.btn-primary:nth-child(6)", "css:finder"],
+        ["css=.btn:nth-child(7)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
         ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
         ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
         ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "5cad883f-cbba-4834-bf72-54a14e66e833",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "id=btnConsultarAtendimentos",
-      "targets": [
-        ["id=btnConsultarAtendimentos", "id"],
-        ["css=#btnConsultarAtendimentos", "css:finder"],
-        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
-        ["xpath=//button", "xpath:position"],
-        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -3042,7 +3068,7 @@
       "id": "a1d6ec81-487c-4965-82fe-3fe3db672fae",
       "comment": "",
       "command": "click",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
@@ -3055,7 +3081,7 @@
       "id": "ea1890e7-f78a-4a30-b199-250e435f4aeb",
       "comment": "",
       "command": "mouseOut",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
@@ -3146,7 +3172,7 @@
       "id": "4e8779d0-3595-4e30-8b9e-a69b7f284c0d",
       "comment": "",
       "command": "click",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
@@ -3224,7 +3250,7 @@
       "id": "00560649-3905-4d34-b813-bfbc94706164",
       "comment": "",
       "command": "click",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
@@ -3237,7 +3263,7 @@
       "id": "97854fce-890c-4292-acf9-85a23f4aaf67",
       "comment": "",
       "command": "mouseOut",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
@@ -3289,7 +3315,7 @@
       "id": "dc9e4838-582b-4c64-b3f1-ca6c5aa5535b",
       "comment": "",
       "command": "click",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
@@ -3354,7 +3380,7 @@
       "id": "e491fa26-1bd9-4019-9864-b20497bda112",
       "comment": "",
       "command": "click",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
@@ -3367,7 +3393,7 @@
       "id": "5303e4ad-93f8-4bfa-a423-c7ed52b93886",
       "comment": "",
       "command": "mouseOut",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
@@ -3390,38 +3416,25 @@
       ],
       "value": ""
     }, {
-      "id": "5ad680a0-1b7c-409c-9fe7-95416908f8eb",
+      "id": "ad26fb0b-e441-4c57-9060-b8c17488e368",
       "comment": "",
       "command": "click",
-      "target": "id=filterServico",
+      "target": "id=filterServicoCabelo",
       "targets": [
-        ["id=filterServico", "id"],
-        ["css=#filterServico", "css:finder"],
-        ["xpath=//input[@id='filterServico']", "xpath:attributes"],
-        ["xpath=//form[@id='filterForm']/div[4]/input", "xpath:idRelative"],
-        ["xpath=//div[4]/input", "xpath:position"]
+        ["id=filterServicoCabelo", "id"],
+        ["css=#filterServicoCabelo", "css:finder"],
+        ["xpath=//input[@id='filterServicoCabelo']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div/input", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "9a0137c2-9d93-4c75-8b60-adf27b42e616",
-      "comment": "",
-      "command": "type",
-      "target": "id=filterServico",
-      "targets": [
-        ["id=filterServico", "id"],
-        ["css=#filterServico", "css:finder"],
-        ["xpath=//input[@id='filterServico']", "xpath:attributes"],
-        ["xpath=//form[@id='filterForm']/div[4]/input", "xpath:idRelative"],
-        ["xpath=//div[4]/input", "xpath:position"]
-      ],
-      "value": "Barba"
-    }, {
-      "id": "2e72c615-3e5b-4ac5-89cd-0d72a4c49870",
+      "id": "d40fc296-4b74-41ea-9005-4513fb2c56d6",
       "comment": "",
       "command": "click",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
-        ["css=.btn-primary:nth-child(6)", "css:finder"],
+        ["css=.btn:nth-child(7)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
         ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
         ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
@@ -3429,7 +3442,7 @@
       ],
       "value": ""
     }, {
-      "id": "22e30dee-fa36-4cc8-bf25-65b695b4c08a",
+      "id": "5badb91b-f907-4ec9-9931-f4b7ea241b33",
       "comment": "",
       "command": "click",
       "target": "id=btnConsultarAtendimentos",
@@ -3442,90 +3455,38 @@
       ],
       "value": ""
     }, {
-      "id": "8abf1459-f6df-4f88-83b6-e565b310a546",
-      "comment": "",
-      "command": "click",
-      "target": "id=filterServico",
-      "targets": [
-        ["id=filterServico", "id"],
-        ["css=#filterServico", "css:finder"],
-        ["xpath=//input[@id='filterServico']", "xpath:attributes"],
-        ["xpath=//form[@id='filterForm']/div[4]/input", "xpath:idRelative"],
-        ["xpath=//div[4]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "0beb7777-2175-4142-83ec-21d609cd70be",
-      "comment": "",
-      "command": "click",
-      "target": "id=filterServico",
-      "targets": [
-        ["id=filterServico", "id"],
-        ["css=#filterServico", "css:finder"],
-        ["xpath=//input[@id='filterServico']", "xpath:attributes"],
-        ["xpath=//form[@id='filterForm']/div[4]/input", "xpath:idRelative"],
-        ["xpath=//div[4]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "b76d21c5-6941-41d1-8406-547d81e03a59",
-      "comment": "",
-      "command": "click",
-      "target": "id=filterServico",
-      "targets": [
-        ["id=filterServico", "id"],
-        ["css=#filterServico", "css:finder"],
-        ["xpath=//input[@id='filterServico']", "xpath:attributes"],
-        ["xpath=//form[@id='filterForm']/div[4]/input", "xpath:idRelative"],
-        ["xpath=//div[4]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "d76f6ef5-89cc-499c-b318-e5ea11e0cebb",
-      "comment": "",
-      "command": "doubleClick",
-      "target": "id=filterServico",
-      "targets": [
-        ["id=filterServico", "id"],
-        ["css=#filterServico", "css:finder"],
-        ["xpath=//input[@id='filterServico']", "xpath:attributes"],
-        ["xpath=//form[@id='filterForm']/div[4]/input", "xpath:idRelative"],
-        ["xpath=//div[4]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "1a54bff2-d586-47a3-8d51-a519587e0a96",
-      "comment": "",
-      "command": "type",
-      "target": "id=filterServico",
-      "targets": [
-        ["id=filterServico", "id"],
-        ["css=#filterServico", "css:finder"],
-        ["xpath=//input[@id='filterServico']", "xpath:attributes"],
-        ["xpath=//form[@id='filterForm']/div[4]/input", "xpath:idRelative"],
-        ["xpath=//div[4]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "f8595147-45b4-4b0e-b24d-9ef4368e4af9",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn-primary:nth-child(6)",
-      "targets": [
-        ["css=.btn-primary:nth-child(6)", "css:finder"],
-        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
-        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
-        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "2d40dd24-994a-48db-92bb-78a4c0366f69",
+      "id": "24dc21df-5339-4b23-92bf-291b53c6345a",
       "comment": "",
       "command": "mouseOut",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "id=btnConsultarAtendimentos",
       "targets": [
-        ["css=.btn-primary:nth-child(6)", "css:finder"],
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4a5d5d2-6f67-4441-9d7f-4b7beaea7314",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoCabelo",
+      "targets": [
+        ["id=filterServicoCabelo", "id"],
+        ["css=#filterServicoCabelo", "css:finder"],
+        ["xpath=//input[@id='filterServicoCabelo']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f756d841-eff8-4db2-ae71-6e6928ec7ec8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
         ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
         ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
@@ -3533,7 +3494,590 @@
       ],
       "value": ""
     }, {
-      "id": "3a9e2837-4fc1-418a-b3ed-460307183bbe",
+      "id": "f64ee8d7-6273-4da8-b10e-5d8cd52f591d",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7126ebdd-4a7e-48d5-ac85-5902eb81ce86",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "09e89422-0745-488b-b6df-218fe6a60b02",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d8e9a16e-2f1f-4401-8d8d-2695cbd27f27",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoBarba",
+      "targets": [
+        ["id=filterServicoBarba", "id"],
+        ["css=#filterServicoBarba", "css:finder"],
+        ["xpath=//input[@id='filterServicoBarba']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae96a772-199a-4512-9acf-40cdcc6d2357",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a4138fa-f752-42ca-842e-2d88a5a7c5ba",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0acf9806-a319-4fb9-bf2a-352420c2d00c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-check:nth-child(3)",
+      "targets": [
+        ["css=.form-check:nth-child(3)", "css:finder"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a42565e-8841-4fb3-870c-823ee2f0c4bf",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoBarba",
+      "targets": [
+        ["id=filterServicoBarba", "id"],
+        ["css=#filterServicoBarba", "css:finder"],
+        ["xpath=//input[@id='filterServicoBarba']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "abfd5655-9e72-41a3-88cd-04cfeb86b4d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "270e60d1-6cf6-438a-a80e-2e19c1912126",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "22e03e77-b251-4709-977c-9fb31e698b5e",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cff91ed4-e074-484b-be7e-cda24868d652",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoBigode",
+      "targets": [
+        ["id=filterServicoBigode", "id"],
+        ["css=#filterServicoBigode", "css:finder"],
+        ["xpath=//input[@id='filterServicoBigode']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f8a2cb23-6507-4334-a1d6-fff71930bd81",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b04b91a-7a47-42b9-96dd-8b5e6b121ad7",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "042aa19e-7346-489b-9695-5438800ef6c9",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoBigode",
+      "targets": [
+        ["id=filterServicoBigode", "id"],
+        ["css=#filterServicoBigode", "css:finder"],
+        ["xpath=//input[@id='filterServicoBigode']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20e6474c-ebbd-4e27-af0d-8c5c6abf4aea",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6883db9-a18a-4434-8aee-adfe8516227c",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3da7badd-4e4e-4d76-8695-cc0ccc273219",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d94ecdf-3e45-410e-ac8a-df678b057f2b",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "40197ed8-98ef-42cb-ab5e-fd1d47452945",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoSobrancelha",
+      "targets": [
+        ["id=filterServicoSobrancelha", "id"],
+        ["css=#filterServicoSobrancelha", "css:finder"],
+        ["xpath=//input[@id='filterServicoSobrancelha']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9798c1f1-4597-41b6-a328-574f1e69cd7b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d69980c1-45d5-4c06-abe6-7feeb714a887",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a481db1-93e2-499b-ac18-be019717cc8e",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5dc47eb-5a31-4768-a093-f2bc41de98f0",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoSobrancelha",
+      "targets": [
+        ["id=filterServicoSobrancelha", "id"],
+        ["css=#filterServicoSobrancelha", "css:finder"],
+        ["xpath=//input[@id='filterServicoSobrancelha']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd0348aa-2161-4658-8651-c83653fc8900",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c95fd614-fac3-4fc2-acd9-9a7edf618386",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "98e2c40a-0559-426b-8c87-344a74c6d8ae",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e1bde0e-c565-476f-b501-d09367d2540e",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3cba9cd-9053-413b-a13f-d3db2ce1a7c0",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoBigode",
+      "targets": [
+        ["id=filterServicoBigode", "id"],
+        ["css=#filterServicoBigode", "css:finder"],
+        ["xpath=//input[@id='filterServicoBigode']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "24db9d44-83a3-4cd9-a6fc-58125dcde413",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoSobrancelha",
+      "targets": [
+        ["id=filterServicoSobrancelha", "id"],
+        ["css=#filterServicoSobrancelha", "css:finder"],
+        ["xpath=//input[@id='filterServicoSobrancelha']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c01655ad-7896-4408-88d2-938093c6b27f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "88e72646-6355-4da5-93c7-2243c91dafa3",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "773118e4-8485-44ed-9e5e-eaee1fd4ba62",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "faa30a80-9942-4ab6-bc77-e372ab66b8e0",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoBigode",
+      "targets": [
+        ["id=filterServicoBigode", "id"],
+        ["css=#filterServicoBigode", "css:finder"],
+        ["xpath=//input[@id='filterServicoBigode']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "13a1d649-f89d-45c3-be89-1c8f278902e0",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoSobrancelha",
+      "targets": [
+        ["id=filterServicoSobrancelha", "id"],
+        ["css=#filterServicoSobrancelha", "css:finder"],
+        ["xpath=//input[@id='filterServicoSobrancelha']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ecdf78f2-5f78-41c7-b68b-315e6b0f3def",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d11f5edc-3b8b-43c5-80be-d70b094ecf11",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7446da92-8bf0-4bbb-9a33-761f7a2db346",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoBarba",
+      "targets": [
+        ["id=filterServicoBarba", "id"],
+        ["css=#filterServicoBarba", "css:finder"],
+        ["xpath=//input[@id='filterServicoBarba']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f271bb7c-4f68-4803-aaef-a9139c464672",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoBigode",
+      "targets": [
+        ["id=filterServicoBigode", "id"],
+        ["css=#filterServicoBigode", "css:finder"],
+        ["xpath=//input[@id='filterServicoBigode']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d80542e4-154c-40a7-83d3-697c500857ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f9338a0-a580-4103-a4cc-0b9bd7d5cd89",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4bbd1f16-d299-4060-ab3d-7bddb1381d8b",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f2c2934-b5c2-4a05-8ee8-9db534385667",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoBarba",
+      "targets": [
+        ["id=filterServicoBarba", "id"],
+        ["css=#filterServicoBarba", "css:finder"],
+        ["xpath=//input[@id='filterServicoBarba']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "152d58a0-a619-46b0-affc-7eefff32f166",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterServicoBigode",
+      "targets": [
+        ["id=filterServicoBigode", "id"],
+        ["css=#filterServicoBigode", "css:finder"],
+        ["xpath=//input[@id='filterServicoBigode']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[4]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/div[4]/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "271e5ed9-8fe6-48b6-a49e-840d62fcec7f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "22e30dee-fa36-4cc8-bf25-65b695b4c08a",
       "comment": "",
       "command": "click",
       "target": "id=btnConsultarAtendimentos",
@@ -3575,7 +4119,7 @@
       "id": "87fa195d-51f1-4671-a981-9006ec23afdf",
       "comment": "",
       "command": "click",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
@@ -3666,7 +4210,7 @@
       "id": "479e2c2d-c80b-495b-b1c3-8d443867eaba",
       "comment": "",
       "command": "click",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
@@ -3679,13 +4223,337 @@
       "id": "66599863-ca7b-405e-bf20-c83639c5eddf",
       "comment": "",
       "command": "mouseOut",
-      "target": "css=.btn-primary:nth-child(6)",
+      "target": "css=.btn:nth-child(7)",
       "targets": [
         ["css=.btn-primary:nth-child(6)", "css:finder"],
         ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
         ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
         ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
         ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c470e36d-de93-44a0-bc87-f6bffd824613",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ef74b7d-892f-417c-a9e0-f6d8407d1dd5",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterFormaPagamento",
+      "targets": [
+        ["id=filterFormaPagamento", "id"],
+        ["css=#filterFormaPagamento", "css:finder"],
+        ["xpath=//select[@id='filterFormaPagamento']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5d05497-a648-400d-96ac-d965844ab09a",
+      "comment": "",
+      "command": "select",
+      "target": "id=filterFormaPagamento",
+      "targets": [],
+      "value": "label=Dinheiro em espécie"
+    }, {
+      "id": "c4302f54-8aa6-44aa-b206-b736b964a6bf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "81a2a775-d137-4ebc-b36c-a93265162364",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "40680289-46ab-42e1-aa14-a9ffa8997217",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa06debe-cf53-4016-a623-8ba844730975",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "abf8d52e-9505-453b-8702-344414a8f5b8",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterFormaPagamento",
+      "targets": [
+        ["id=filterFormaPagamento", "id"],
+        ["css=#filterFormaPagamento", "css:finder"],
+        ["xpath=//select[@id='filterFormaPagamento']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a70fc1f2-0f8e-485e-95a2-e68911264243",
+      "comment": "",
+      "command": "select",
+      "target": "id=filterFormaPagamento",
+      "targets": [],
+      "value": "label=Todos"
+    }, {
+      "id": "ec013bbd-520a-4c95-a0b6-ebb7b20f0686",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "63ff8632-5c9f-4148-9892-aa562e736b15",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "008e304c-5707-4602-9da5-647dff1613e5",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dceeeb0c-a8e4-4864-94eb-7f849de930b0",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f11b0dcd-048e-4cfa-8590-f4d3dfd5e222",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b6cfe6a-ee15-4c1b-bd7c-b74e754a4558",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2e1205f-6b51-4295-b8eb-1a076279462b",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterFormaPagamento",
+      "targets": [
+        ["id=filterFormaPagamento", "id"],
+        ["css=#filterFormaPagamento", "css:finder"],
+        ["xpath=//select[@id='filterFormaPagamento']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "748a6d36-c409-43df-a4f1-991099daac4e",
+      "comment": "",
+      "command": "select",
+      "target": "id=filterFormaPagamento",
+      "targets": [],
+      "value": "label=PIX"
+    }, {
+      "id": "ff91a6fc-41f1-4fb7-a22a-c0db7f181a2b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee2d0f45-5fc4-486d-bd45-fa240b1d69db",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6fb6a3e-7a1b-4686-9e3d-7efb86e90c0c",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd23f73f-faea-4d42-a5af-e853582f0d9d",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnConsultarAtendimentos",
+      "targets": [
+        ["id=btnConsultarAtendimentos", "id"],
+        ["css=#btnConsultarAtendimentos", "css:finder"],
+        ["xpath=//button[@id='btnConsultarAtendimentos']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar Atendimentos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "988a0d3f-25a8-47ee-acb9-ac18932d644a",
+      "comment": "",
+      "command": "click",
+      "target": "id=filterFormaPagamento",
+      "targets": [
+        ["id=filterFormaPagamento", "id"],
+        ["css=#filterFormaPagamento", "css:finder"],
+        ["xpath=//select[@id='filterFormaPagamento']", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2878c2a5-13b0-4f74-87ad-a6b3ab0fddea",
+      "comment": "",
+      "command": "select",
+      "target": "id=filterFormaPagamento",
+      "targets": [],
+      "value": "label=Todos"
+    }, {
+      "id": "e842eecc-19f4-4566-a737-45024ebb1007",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "95838181-a5ce-49f0-95ad-937e72e78a21",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0130674d-a941-4d50-ad0b-95f054277203",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn:nth-child(7)",
+      "targets": [
+        ["css=.btn:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='filterForm']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Filtrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3464894d-09c2-4516-ac8d-b61abb91d6fd",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
       ],
       "value": ""
     }]
@@ -3783,7 +4651,7 @@
         ["xpath=//form[@id='editAtendimentoForm']/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[4]/div/div/div[2]/form/div[2]/input", "xpath:position"]
       ],
-      "value": "2024-11-14"
+      "value": "2024-11-16"
     }, {
       "id": "26c859c3-c1f3-461e-b353-f91fee78862e",
       "comment": "",
@@ -3850,25 +4718,31 @@
       ],
       "value": "12:30"
     }, {
-      "id": "df4c6f5a-6dc9-4b89-8631-a695a4ccf054",
+      "id": "786754a8-d64f-424d-811e-4851593bab48",
       "comment": "",
       "command": "click",
-      "target": "id=editServico",
+      "target": "id=editServicoCabelo",
       "targets": [
-        ["id=editServico", "id"],
-        ["css=#editServico", "css:finder"],
-        ["xpath=//select[@id='editServico']", "xpath:attributes"],
-        ["xpath=//form[@id='editAtendimentoForm']/div[4]/select", "xpath:idRelative"],
-        ["xpath=//div[4]/div/div/div[2]/form/div[4]/select", "xpath:position"]
+        ["id=editServicoCabelo", "id"],
+        ["css=#editServicoCabelo", "css:finder"],
+        ["xpath=//input[@id='editServicoCabelo']", "xpath:attributes"],
+        ["xpath=//form[@id='editAtendimentoForm']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//form/div[4]/input", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "7f6d51bf-e9c1-4ef7-965a-0d650face5dc",
+      "id": "05f5bb65-63cb-4339-b214-3db4d4697339",
       "comment": "",
-      "command": "select",
-      "target": "id=editServico",
-      "targets": [],
-      "value": "label=Bigode"
+      "command": "click",
+      "target": "id=editServicoSobrancelha",
+      "targets": [
+        ["id=editServicoSobrancelha", "id"],
+        ["css=#editServicoSobrancelha", "css:finder"],
+        ["xpath=//input[@id='editServicoSobrancelha']", "xpath:attributes"],
+        ["xpath=//form[@id='editAtendimentoForm']/div[4]/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
     }, {
       "id": "4c020f78-d7c9-4160-a3e6-e82a6f3c710d",
       "comment": "",
@@ -3896,12 +4770,77 @@
       ],
       "value": "Ricardo"
     }, {
-      "id": "687ed88e-a3d0-4805-a68c-fd0531fdb07e",
+      "id": "6cce2064-611c-4622-bf99-85cab6d84ae8",
       "comment": "",
       "command": "click",
-      "target": "css=.btn-warning:nth-child(6)",
+      "target": "id=editFormaPagamento",
       "targets": [
-        ["css=.btn-warning:nth-child(6)", "css:finder"],
+        ["id=editFormaPagamento", "id"],
+        ["css=#editFormaPagamento", "css:finder"],
+        ["xpath=//input[@id='editFormaPagamento']", "xpath:attributes"],
+        ["xpath=//form[@id='editAtendimentoForm']/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div[2]/form/div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "727d1609-598a-4b63-979d-96a4f4fd2746",
+      "comment": "",
+      "command": "click",
+      "target": "id=editFormaPagamento",
+      "targets": [
+        ["id=editFormaPagamento", "id"],
+        ["css=#editFormaPagamento", "css:finder"],
+        ["xpath=//input[@id='editFormaPagamento']", "xpath:attributes"],
+        ["xpath=//form[@id='editAtendimentoForm']/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div[2]/form/div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2eb119ce-cf16-4222-8c3e-af37013e6cd1",
+      "comment": "",
+      "command": "type",
+      "target": "id=editFormaPagamento",
+      "targets": [
+        ["id=editFormaPagamento", "id"],
+        ["css=#editFormaPagamento", "css:finder"],
+        ["xpath=//input[@id='editFormaPagamento']", "xpath:attributes"],
+        ["xpath=//form[@id='editAtendimentoForm']/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div[2]/form/div[6]/input", "xpath:position"]
+      ],
+      "value": "Dinheiro em Espécie"
+    }, {
+      "id": "fcb7f4a4-8115-42d7-8010-48660700c4c7",
+      "comment": "",
+      "command": "click",
+      "target": "id=editValorCobrado",
+      "targets": [
+        ["id=editValorCobrado", "id"],
+        ["css=#editValorCobrado", "css:finder"],
+        ["xpath=//input[@id='editValorCobrado']", "xpath:attributes"],
+        ["xpath=//form[@id='editAtendimentoForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2cb58b3-2061-4744-81c5-a7d8a394e80b",
+      "comment": "",
+      "command": "type",
+      "target": "id=editValorCobrado",
+      "targets": [
+        ["id=editValorCobrado", "id"],
+        ["css=#editValorCobrado", "css:finder"],
+        ["xpath=//input[@id='editValorCobrado']", "xpath:attributes"],
+        ["xpath=//form[@id='editAtendimentoForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "35.00"
+    }, {
+      "id": "91429994-c803-487a-ad97-76d2eb23d1cc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(8)",
+      "targets": [
+        ["css=.btn-primary:nth-child(8)", "css:finder"],
         ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
         ["xpath=//form[@id='editAtendimentoForm']/button", "xpath:idRelative"],
         ["xpath=//div[4]/div/div/div[2]/form/button", "xpath:position"],
