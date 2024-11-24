@@ -16,6 +16,12 @@
   <!-- Barra de Navegação (Header) -->
   <header class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div class="container d-flex justify-content-between align-items-center w-100">
+      <!-- Botão de Voltar Alinhado à Esquerda e mais para cima -->
+      <a href="javascript:history.back()" class="navbar-brand d-flex align-items-center me-auto"
+        style="margin-top: -10px;">
+        <img src="../imagens/voltar.png" alt="Voltar" height="30"> <!-- Imagem de Voltar -->
+      </a>
+
       <!-- Logotipo -->
       <a href="#" class="navbar-brand d-flex align-items-center">
         <img src="../imagens/logo.png" alt="Logotipo" height="80"> <!-- Logotipo da Barbearia -->
@@ -53,6 +59,7 @@
           <th>Serviço</th>
           <th>Valor do Serviço</th>
           <th>Barbeiro Responsável</th>
+          <th>Forma de Pagamento</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -85,12 +92,22 @@
             </div>
             <div class="mb-3">
               <label for="servico" class="form-label">Serviço*</label>
-              <select class="form-select" id="servico" required>
-                <option value="Cabelo">Cabelo</option>
-                <option value="Barba">Barba</option>
-                <option value="Bigode">Bigode</option>
-                <option value="Sobrancelha">Sobrancelha</option>
-              </select>
+              <div>
+                <input type="checkbox" class="form-check-input" id="servicoCabelo" value="Cabelo">
+                <label class="form-check-label" for="servicoCabelo">Cabelo</label>
+              </div>
+              <div>
+                <input type="checkbox" class="form-check-input" id="servicoBarba" value="Barba">
+                <label class="form-check-label" for="servicoBarba">Barba</label>
+              </div>
+              <div>
+                <input type="checkbox" class="form-check-input" id="servicoBigode" value="Bigode">
+                <label class="form-check-label" for="servicoBigode">Bigode</label>
+              </div>
+              <div>
+                <input type="checkbox" class="form-check-input" id="servicoSobrancelha" value="Sobrancelha">
+                <label class="form-check-label" for="servicoSobrancelha">Sobrancelha</label>
+              </div>
             </div>
             <div class="mb-3">
               <label for="valorCobrado" class="form-label">Valor Cobrado*</label>
@@ -140,12 +157,37 @@
               <input type="time" class="form-control" id="filterHora">
             </div>
             <div class="mb-3">
-              <label for="filterServico" class="form-label">Serviço</label>
-              <input type="text" class="form-control" id="filterServico">
+              <label class="form-label">Serviço</label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filterServicoCabelo">
+                <label class="form-check-label" for="filterServicoCabelo">Cabelo</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filterServicoBarba">
+                <label class="form-check-label" for="filterServicoBarba">Barba</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filterServicoBigode">
+                <label class="form-check-label" for="filterServicoBigode">Bigode</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filterServicoSobrancelha">
+                <label class="form-check-label" for="filterServicoSobrancelha">Sobrancelha</label>
+              </div>
             </div>
             <div class="mb-3">
               <label for="filterBarbeiro" class="form-label">Barbeiro Responsável</label>
               <input type="text" class="form-control" id="filterBarbeiro">
+            </div>
+            <div class="mb-3">
+              <label for="filterFormaPagamento" class="form-label">Forma de Pagamento</label>
+              <select class="form-control" id="filterFormaPagamento">
+                <option value="todos">Todos</option>
+                <option value="pix">PIX</option>
+                <option value="dinheiro em espécie">Dinheiro em espécie</option>
+                <option value="debito">Débito</option>
+                <option value="credito">Crédito</option>
+              </select>
             </div>
             <button type="submit" class="btn btn-primary w-100">Filtrar</button>
           </form>
@@ -165,32 +207,45 @@
         </div>
         <div class="modal-body">
           <form id="editAtendimentoForm">
-            <div class="mb-3">
-              <label for="editCliente" class="form-label">Cliente*</label>
-              <input type="text" class="form-control" id="editCliente" required>
+            <div class="form-group">
+              <label for="editCliente">Cliente</label>
+              <input type="text" id="editCliente" class="form-control" required>
             </div>
-            <div class="mb-3">
-              <label for="editData" class="form-label">Data*</label>
-              <input type="date" class="form-control" id="editData" required>
+
+            <div class="form-group">
+              <label for="editData">Data</label>
+              <input type="date" id="editData" class="form-control" required>
             </div>
-            <div class="mb-3">
-              <label for="editHora" class="form-label">Hora*</label>
-              <input type="time" class="form-control" id="editHora" required>
+
+            <div class="form-group">
+              <label for="editHora">Hora</label>
+              <input type="time" id="editHora" class="form-control" required>
             </div>
-            <div class="mb-3">
-              <label for="editServico" class="form-label">Serviço*</label>
-              <select class="form-select" id="editServico" required>
-                <option value="Cabelo">Cabelo</option>
-                <option value="Barba">Barba</option>
-                <option value="Bigode">Bigode</option>
-                <option value="Sobrancelha">Sobrancelha</option>
-              </select>
+
+            <div class="form-group">
+              <label>Serviços</label><br>
+              <input type="checkbox" id="editServicoCabelo"> Cabelo
+              <input type="checkbox" id="editServicoBarba"> Barba
+              <input type="checkbox" id="editServicoBigode"> Bigode
+              <input type="checkbox" id="editServicoSobrancelha"> Sobrancelha
             </div>
-            <div class="mb-3">
-              <label for="editBarbeiroResponsavel" class="form-label">Barbeiro Responsável*</label>
-              <input type="text" class="form-control" id="editBarbeiroResponsavel" required>
+
+            <div class="form-group">
+              <label for="editBarbeiroResponsavel">Barbeiro Responsável</label>
+              <input type="text" id="editBarbeiroResponsavel" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-warning w-100">Salvar Alterações</button>
+
+            <div class="form-group">
+              <label for="editFormaPagamento">Forma de Pagamento</label>
+              <input type="text" id="editFormaPagamento" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="editValorCobrado">Valor Cobrado</label>
+              <input type="number" id="editValorCobrado" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
           </form>
         </div>
       </div>
@@ -200,11 +255,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     let atendimentos = [
-      { cliente: "João Silva", data: "2024-11-15", hora: "10:00", servico: "Barba", valorCobrado: "40.00", barbeiroResponsavel: "Carlos" },
-      { cliente: "Maria Oliveira", data: "2024-11-16", hora: "14:00", servico: "Sobrancelha", valorCobrado: "30.00", barbeiroResponsavel: "Ricardo" },
-      { cliente: "Carlos Souza", data: "2024-11-17", hora: "16:00", servico: "Bigode", valorCobrado: "20.00", barbeiroResponsavel: "Eduardo" }
+      { cliente: "João Silva", data: "2024-11-15", hora: "10:00", servico: "Cabelo, Barba, Bigode", valorCobrado: "40.00", barbeiroResponsavel: "Carlos", formaPagamento: "PIX" },
+      { cliente: "Maria Oliveira", data: "2024-11-16", hora: "14:00", servico: "Sobrancelha", valorCobrado: "15.00", barbeiroResponsavel: "Ricardo", formaPagamento: "Dinheiro em espécie" },
+      { cliente: "Carlos Souza", data: "2024-11-17", hora: "16:00", servico: "Barba, Bigode", valorCobrado: "30.00", barbeiroResponsavel: "Eduardo", formaPagamento: "PIX" }
     ];
-
 
     // Função para formatar a data
     function formatData(data) {
@@ -217,7 +271,6 @@
       return hora.replace(/(\d{2}):(\d{2})/, "$1:$2");
     }
 
-    // Função para renderizar a tabela de atendimentos
     function renderAtendimentoTable(atendimentoList = atendimentos) {
       const atendimentoTableBody = document.getElementById("atendimentoTableBody");
       atendimentoTableBody.innerHTML = "";
@@ -228,9 +281,10 @@
       <td>${atendimento.cliente}</td>
       <td>${formatData(atendimento.data)}</td>
       <td>${formatHora(atendimento.hora)}</td>
-      <td>${atendimento.servico}</td>
+      <td>${atendimento.servico}</td> <!-- Exibe os serviços selecionados -->
       <td>R$ ${parseFloat(atendimento.valorCobrado).toFixed(2)}</td>
       <td>${atendimento.barbeiroResponsavel}</td>
+      <td>${atendimento.formaPagamento || 'Não Informado'}</td> <!-- Forma de pagamento -->
       <td>
         <button onclick="editarAtendimento(${index})" class="btn btn-warning btn-sm">Editar</button>
         <button onclick="excluirAtendimento(${index})" class="btn btn-danger btn-sm">Excluir</button>
@@ -238,7 +292,6 @@
     `;
       });
     }
-
 
     // Função para ordenar os atendimentos por data e hora
     function ordenarAtendimentos() {
@@ -260,25 +313,30 @@
       });
     }
 
-    // Função para adicionar um novo atendimento
-    function adicionarAtendimento(atendimento) {
-      atendimentos.push(atendimento);
-      ordenarAtendimentos(); // Ordenar após adicionar
-      renderAtendimentoTable();
+    // Função para adicionar atendimento à lista
+    function adicionarAtendimento(novoAtendimento) {
+      atendimentos.push(novoAtendimento);
+      renderAtendimentoTable(); // Atualiza a tabela após adicionar
     }
-
-    // Função para enviar o formulário de cadastro de atendimento
+    // Função para adicionar um novo atendimento
     document.getElementById("clientForm").onsubmit = function (event) {
       event.preventDefault();
+
+      // Coletar os serviços selecionados
+      const serviçosSelecionados = [];
+      if (document.getElementById("servicoCabelo").checked) serviçosSelecionados.push("Cabelo");
+      if (document.getElementById("servicoBarba").checked) serviçosSelecionados.push("Barba");
+      if (document.getElementById("servicoBigode").checked) serviçosSelecionados.push("Bigode");
+      if (document.getElementById("servicoSobrancelha").checked) serviçosSelecionados.push("Sobrancelha");
 
       const novoAtendimento = {
         cliente: document.getElementById("nome").value,
         data: document.getElementById("data").value,
         hora: document.getElementById("hora").value,
-        servico: document.getElementById("servico").value,
-        barbeiroResponsavel: document.getElementById("barbeiroResponsavel").value,
+        servico: serviçosSelecionados.join(", "), // Aqui, armazenamos os serviços selecionados como uma string separada por vírgulas
         valorCobrado: document.getElementById("valorCobrado").value,
-        formaPagamento: document.getElementById("formaPagamento").value,
+        barbeiroResponsavel: document.getElementById("barbeiroResponsavel").value,
+        formaPagamento: document.getElementById("formaPagamento").value
       };
 
       adicionarAtendimento(novoAtendimento);
@@ -296,21 +354,40 @@
       document.getElementById("editCliente").value = atendimento.cliente;
       document.getElementById("editData").value = atendimento.data;
       document.getElementById("editHora").value = atendimento.hora;
-      document.getElementById("editServico").value = atendimento.servico;
+
+      // Marcar os serviços selecionados
+      const servicos = atendimento.servico.split(", ");
+      document.getElementById("editServicoCabelo").checked = servicos.includes("Cabelo");
+      document.getElementById("editServicoBarba").checked = servicos.includes("Barba");
+      document.getElementById("editServicoBigode").checked = servicos.includes("Bigode");
+      document.getElementById("editServicoSobrancelha").checked = servicos.includes("Sobrancelha");
+
       document.getElementById("editBarbeiroResponsavel").value = atendimento.barbeiroResponsavel;
+      document.getElementById("editFormaPagamento").value = atendimento.formaPagamento;
+      document.getElementById("editValorCobrado").value = atendimento.valorCobrado; // Adicionando o valor cobrado
 
       const editForm = document.getElementById("editAtendimentoForm");
       editForm.onsubmit = function (event) {
         event.preventDefault();
 
+        // Capturar os serviços selecionados
+        const serviçosSelecionados = [];
+        if (document.getElementById("editServicoCabelo").checked) serviçosSelecionados.push("Cabelo");
+        if (document.getElementById("editServicoBarba").checked) serviçosSelecionados.push("Barba");
+        if (document.getElementById("editServicoBigode").checked) serviçosSelecionados.push("Bigode");
+        if (document.getElementById("editServicoSobrancelha").checked) serviçosSelecionados.push("Sobrancelha");
+
+        // Atualizar o atendimento com os novos dados
         atendimento.cliente = document.getElementById("editCliente").value;
         atendimento.data = document.getElementById("editData").value;
         atendimento.hora = document.getElementById("editHora").value;
-        atendimento.servico = document.getElementById("editServico").value;
+        atendimento.servico = serviçosSelecionados.join(", "); // Atualiza os serviços selecionados
         atendimento.barbeiroResponsavel = document.getElementById("editBarbeiroResponsavel").value;
+        atendimento.formaPagamento = document.getElementById("editFormaPagamento").value;
+        atendimento.valorCobrado = document.getElementById("editValorCobrado").value; // Atualiza o valor cobrado
 
         ordenarAtendimentos(); // Ordenar após editar
-        renderAtendimentoTable();
+        renderAtendimentoTable(); // Atualizar a tabela com os novos dados
 
         // Fechar o modal de edição
         const modalEditarElement = document.getElementById("modalEditarAtendimento");
@@ -318,6 +395,7 @@
         modalEditar.hide();  // Fechar o modal após salvar as alterações
       };
 
+      // Mostrar o modal de edição
       const modal = new bootstrap.Modal(document.getElementById("modalEditarAtendimento"));
       modal.show();
     }
@@ -327,21 +405,36 @@
       const cliente = document.getElementById("filterCliente").value.toLowerCase();
       const data = document.getElementById("filterData").value;
       const hora = document.getElementById("filterHora").value;
-      const servico = document.getElementById("filterServico").value.toLowerCase();
+
+      // Capturar os serviços selecionados
+      const servicos = [];
+      if (document.getElementById("filterServicoCabelo").checked) servicos.push("Cabelo");
+      if (document.getElementById("filterServicoBarba").checked) servicos.push("Barba");
+      if (document.getElementById("filterServicoBigode").checked) servicos.push("Bigode");
+      if (document.getElementById("filterServicoSobrancelha").checked) servicos.push("Sobrancelha");
+
       const barbeiro = document.getElementById("filterBarbeiro").value.toLowerCase();
+      const formaPagamento = document.getElementById("filterFormaPagamento").value.toLowerCase();
 
       const filteredAtendimentos = atendimentos.filter(atendimento => {
+        // Filtragem por serviços: verificar se pelo menos um serviço está presente
+        const atendeComServico = servicos.length === 0 || servicos.some(servico => atendimento.servico.toLowerCase().includes(servico.toLowerCase()));
+
+        // Filtrar pela forma de pagamento selecionada
+        const formaPagamentoValida = formaPagamento === "todos" || atendimento.formaPagamento.toLowerCase() === formaPagamento;
+
         return (
           (cliente ? atendimento.cliente.toLowerCase().includes(cliente) : true) &&
           (data ? atendimento.data === data : true) &&
           (hora ? atendimento.hora === hora : true) &&
-          (servico ? atendimento.servico.toLowerCase().includes(servico) : true) &&
-          (barbeiro ? atendimento.barbeiroResponsavel.toLowerCase().includes(barbeiro) : true)
+          (atendeComServico) && // Verificar se o atendimento corresponde aos serviços selecionados
+          (barbeiro ? atendimento.barbeiroResponsavel.toLowerCase().includes(barbeiro) : true) &&
+          (formaPagamentoValida) // Verificar a forma de pagamento
         );
       });
 
       ordenarAtendimentos(); // Ordenar após filtrar
-      renderAtendimentoTable(filteredAtendimentos);
+      renderAtendimentoTable(filteredAtendimentos); // Atualizar a tabela com os atendimentos filtrados
     }
 
     // Enviar o filtro de consulta
