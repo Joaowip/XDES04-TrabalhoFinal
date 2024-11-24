@@ -7848,6 +7848,811 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "6bf54b97-ab57-415d-b406-146f30d42a34",
+    "name": "Relatório de Desempenho",
+    "commands": [{
+      "id": "9720b6f3-356b-48b4-8976-135280e733fb",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5500/code/index.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "65905446-8e0e-46c2-802b-b30cba66815a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1080",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b014850-a416-4c7f-b9a5-698c2dbdc4d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.offset-md-4 img",
+      "targets": [
+        ["css=.offset-md-4 img", "css:finder"],
+        ["xpath=//img[@alt='Relatórios']", "xpath:img"],
+        ["xpath=//div[3]/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e70fc0cb-bbc3-4e9e-be02-c1d364d7b9f2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Relatório de Desempenho",
+      "targets": [
+        ["linkText=Relatório de Desempenho", "linkText"],
+        ["css=.col-md-4:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(@href, 'relatorio de desempenho/relatorioDesempenho.html')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Relatório de Desempenho')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c83b368-0c64-49c5-866c-f3632885308e",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "250f4fe3-fc59-4ea3-9b9b-00ec7b5d5e60",
+      "comment": "",
+      "command": "click",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "350fa673-47d4-4cad-b70c-97aac2922556",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0002-11-25"
+    }, {
+      "id": "d6155dd6-2422-4908-96c1-e9be6bf08554",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0020-11-25"
+    }, {
+      "id": "35625d45-4043-44f8-8e50-81e1313fd5f1",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0202-11-25"
+    }, {
+      "id": "7cfe994a-d3f9-4a54-958f-2991489d90bd",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2024-11-25"
+    }, {
+      "id": "e26422d0-e093-4b0f-b457-caec6fa4b618",
+      "comment": "",
+      "command": "click",
+      "target": "id=dataFim",
+      "targets": [
+        ["id=dataFim", "id"],
+        ["css=#dataFim", "css:finder"],
+        ["xpath=//input[@id='dataFim']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e58b4c4b-9237-4f1d-a94f-a03eec23a4bc",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataFim",
+      "targets": [
+        ["id=dataFim", "id"],
+        ["css=#dataFim", "css:finder"],
+        ["xpath=//input[@id='dataFim']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "0002-11-25"
+    }, {
+      "id": "1006f685-76fa-452e-b205-8c4ee6c1690e",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataFim",
+      "targets": [
+        ["id=dataFim", "id"],
+        ["css=#dataFim", "css:finder"],
+        ["xpath=//input[@id='dataFim']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "0020-11-25"
+    }, {
+      "id": "c265b63a-96c0-43b7-8214-fe564e28523d",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataFim",
+      "targets": [
+        ["id=dataFim", "id"],
+        ["css=#dataFim", "css:finder"],
+        ["xpath=//input[@id='dataFim']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "0202-11-25"
+    }, {
+      "id": "9ea61244-bc35-45b1-8d4b-7108308ab9c0",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataFim",
+      "targets": [
+        ["id=dataFim", "id"],
+        ["css=#dataFim", "css:finder"],
+        ["xpath=//input[@id='dataFim']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "2024-11-25"
+    }, {
+      "id": "6f3088ca-5729-4a16-b8df-66197b214f7c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar Filtros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "94d767c3-1b5d-452e-9710-19a092423bf6",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar Filtros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4702f40a-49bd-4302-bf2f-5ac198805114",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ebcc26f0-7be0-4359-a458-6f8b07a91d31",
+      "comment": "",
+      "command": "click",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23775c25-51f6-46fe-9cd3-9c92bade961b",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2024-11-02"
+    }, {
+      "id": "516e9b8d-26f4-4f0d-a745-59de2f974f74",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2024-11-24"
+    }, {
+      "id": "ce70dcd4-424a-447f-97b1-4890b57787c2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar Filtros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "421c0863-94bb-4539-a7f1-032f020608f5",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar Filtros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a08054d-800a-43e6-bfdc-f0fd1828e02d",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "35b25579-bfbd-4702-9ac9-9c5ad6b541b5",
+      "comment": "",
+      "command": "click",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e37c81fe-2ffc-4bad-967e-86ecfbd71379",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2024-11-02"
+    }, {
+      "id": "517207ca-31e7-47fa-bccd-d83432d2af04",
+      "comment": "",
+      "command": "type",
+      "target": "id=dataInicio",
+      "targets": [
+        ["id=dataInicio", "id"],
+        ["css=#dataInicio", "css:finder"],
+        ["xpath=//input[@id='dataInicio']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2024-11-23"
+    }, {
+      "id": "ae7f2d11-b899-485e-a482-889e2ca2bf67",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar Filtros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "39b0e408-94cd-4831-bc27-cdccc95a000d",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6da754e7-3a5a-4049-8a09-9ac899784a3a",
+      "comment": "",
+      "command": "click",
+      "target": "id=barbeiro",
+      "targets": [
+        ["id=barbeiro", "id"],
+        ["css=#barbeiro", "css:finder"],
+        ["xpath=//input[@id='barbeiro']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b324b68-d4da-407b-9c50-722c4a00ae4e",
+      "comment": "",
+      "command": "type",
+      "target": "id=barbeiro",
+      "targets": [
+        ["id=barbeiro", "id"],
+        ["css=#barbeiro", "css:finder"],
+        ["xpath=//input[@id='barbeiro']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": "Carlos"
+    }, {
+      "id": "dddfd914-812e-4523-b0c3-652a92488b53",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar Filtros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0481f484-1c65-414a-8d91-2710bcd891e7",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e92485d6-00cf-449b-9e90-292bbd03711d",
+      "comment": "",
+      "command": "click",
+      "target": "id=barbeiro",
+      "targets": [
+        ["id=barbeiro", "id"],
+        ["css=#barbeiro", "css:finder"],
+        ["xpath=//input[@id='barbeiro']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e28337a-e33a-43a7-81b4-3a4d4df6852c",
+      "comment": "",
+      "command": "type",
+      "target": "id=barbeiro",
+      "targets": [
+        ["id=barbeiro", "id"],
+        ["css=#barbeiro", "css:finder"],
+        ["xpath=//input[@id='barbeiro']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": "Ana"
+    }, {
+      "id": "a6782ffe-7ebf-4355-a5c4-3e04176abd5a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar Filtros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5472a74-46c9-47f6-8dd2-67b8a0836bde",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "02da7959-ee79-4d02-bff0-e47a37a8a807",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6f8aeca-db63-4887-af23-7c355223f76f",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "94bacb1a-ca43-4852-b66d-32d78cc2cac9",
+      "comment": "",
+      "command": "click",
+      "target": "id=barbeiro",
+      "targets": [
+        ["id=barbeiro", "id"],
+        ["css=#barbeiro", "css:finder"],
+        ["xpath=//input[@id='barbeiro']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c24bb387-28e0-4799-9d98-b02c10fab805",
+      "comment": "",
+      "command": "type",
+      "target": "id=barbeiro",
+      "targets": [
+        ["id=barbeiro", "id"],
+        ["css=#barbeiro", "css:finder"],
+        ["xpath=//input[@id='barbeiro']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b743a591-45fe-4004-aa77-4266048e2cb8",
+      "comment": "",
+      "command": "click",
+      "target": "id=servicoCabelo",
+      "targets": [
+        ["id=servicoCabelo", "id"],
+        ["css=#servicoCabelo", "css:finder"],
+        ["xpath=//input[@id='servicoCabelo']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "45e2b1b9-ffa7-4082-b91a-c09ab842f875",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar Filtros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab8cf934-1fbf-4340-9559-8c1a94483810",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "75df0a3b-99d3-4db3-8e1d-6534b4eff55c",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e0ff504-7993-44e2-ba51-3514b8911dc5",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f187c2b0-f883-4fe1-b02a-4701702e7c01",
+      "comment": "",
+      "command": "click",
+      "target": "id=servicoBarba",
+      "targets": [
+        ["id=servicoBarba", "id"],
+        ["css=#servicoBarba", "css:finder"],
+        ["xpath=//input[@id='servicoBarba']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div[3]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "482274e7-cfe8-4aee-8cf7-16aaacb6a8ae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar Filtros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9227ad52-c350-4a35-a24a-c861c895dd93",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "93f3fa7c-9e5a-427d-938e-9f14dfd20821",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "674cc987-0818-4ba9-9556-a2ec7d408d09",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=btnGerarRelatorio",
+      "targets": [
+        ["id=btnGerarRelatorio", "id"],
+        ["css=#btnGerarRelatorio", "css:finder"],
+        ["xpath=//button[@id='btnGerarRelatorio']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Relatório')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f28c899f-7b3c-465b-946f-6ad79b43525c",
+      "comment": "",
+      "command": "click",
+      "target": "id=servicoBarba",
+      "targets": [
+        ["id=servicoBarba", "id"],
+        ["css=#servicoBarba", "css:finder"],
+        ["xpath=//input[@id='servicoBarba']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div[3]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0717b5f-44af-4ad2-a012-89e67c1e3324",
+      "comment": "",
+      "command": "click",
+      "target": "id=servicoCabelo",
+      "targets": [
+        ["id=servicoCabelo", "id"],
+        ["css=#servicoCabelo", "css:finder"],
+        ["xpath=//input[@id='servicoCabelo']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc6e429c-aec6-4b04-a79a-3659fdb2f5bf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='relatorioFiltrosForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar Filtros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fafe6761-919b-463a-b957-349335f353df",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "96f15c38-5a1b-41e0-b575-2bdab6a80bbb",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2749d1e2-71f4-4933-a625-816946f5e615",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7d16e024-b56b-47d6-8143-2e612f16edd9",
+    "name": "Guia de Estoque",
+    "commands": [{
+      "id": "eef78b95-6cdf-40ff-a840-1449cb8c38f3",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5500/code/index.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f8cd46e3-8de1-4bec-bf89-a9832970f5c0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1080",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "22382d21-52d5-4398-9052-298b37dafff7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.offset-md-4 img",
+      "targets": [
+        ["css=.offset-md-4 img", "css:finder"],
+        ["xpath=//img[@alt='Relatórios']", "xpath:img"],
+        ["xpath=//div[3]/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da4e8fbd-4531-4638-b9d0-3622dd105c2a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-4:nth-child(2) img",
+      "targets": [
+        ["css=.col-md-4:nth-child(2) img", "css:finder"],
+        ["xpath=//img[@alt='Guia de Estoque']", "xpath:img"],
+        ["xpath=//div[2]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac7c1c36-53c7-44d2-8873-6dce9ac76187",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnGerarGuia",
+      "targets": [
+        ["id=btnGerarGuia", "id"],
+        ["css=#btnGerarGuia", "css:finder"],
+        ["xpath=//button[@id='btnGerarGuia']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Gerar Guia')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "09d45240-62e0-4c7d-87e2-c76316ef6108",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "81628f07-b261-4420-8b89-8d70f7bed6dc",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "adfe4f93-6d80-4a4d-ba7d-b63fe51e3111",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "53352c09-ca34-4237-9661-aea89664ccbf",
@@ -7891,6 +8696,13 @@
     "parallel": false,
     "timeout": 300,
     "tests": ["c79a97c8-4c19-4e9a-bf46-5aed15bbcefa", "badb7610-6097-4fe9-b5b3-3edd05f9e16f", "beb8cb4f-b72d-4842-a033-ec38fcb447c4", "6eeb9323-f605-4087-b441-e176fa1bae19"]
+  }, {
+    "id": "a7f2a05f-e8b5-4b14-ad92-3420083b8acf",
+    "name": "Relatórios",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["7d16e024-b56b-47d6-8143-2e612f16edd9", "6bf54b97-ab57-415d-b406-146f30d42a34"]
   }],
   "urls": ["http://127.0.0.1:5500/", "http://127.0.0.1:5500/code/index.html", "http://127.0.0.1:5500/code/usuarios/usuarios.html?", "http://127.0.0.1:5500/code/atendimentos/atendimentos.html", "http://127.0.0.1:5500/code/agendamentos/agendamentos.html"],
   "plugins": []

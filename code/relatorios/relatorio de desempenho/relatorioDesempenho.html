@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,14 @@
   <!-- Ícone da página -->
   <link rel="icon" href="../../imagens/icon.png" type="image/png">
 </head>
-<body>
 
+<body>
   <!-- Barra de Navegação (Header) -->
   <header class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div class="container d-flex justify-content-between align-items-center w-100">
       <!-- Botão de Voltar Alinhado à Esquerda e mais para cima -->
-      <a href="javascript:history.back()" class="navbar-brand d-flex align-items-center me-auto" style="margin-top: -10px;">
+      <a href="javascript:history.back()" class="navbar-brand d-flex align-items-center me-auto"
+        style="margin-top: -10px;">
         <img src="../../imagens/voltar.png" alt="Voltar" height="30"> <!-- Imagem de Voltar -->
       </a>
 
@@ -36,4 +38,298 @@
       </div>
     </div>
   </header>
-<body>
+
+  <!-- Botão Gerar Relatório -->
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Relatório de Desempenho</h2>
+      <div>
+        <button id="btnGerarRelatorio" class="btn btn-primary">Gerar Relatório</button>
+      </div>
+    </div>
+
+    <!-- Espaço para exibir o relatório -->
+    <div id="relatorioContainer" class="card p-4 shadow-lg">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="card text-white bg-success">
+            <div class="card-body">
+              <h5 class="card-title">Total de Atendimentos</h5>
+              <p class="card-text" id="totalAtendimentos">0</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="card text-white bg-primary">
+            <div class="card-body">
+              <h5 class="card-title">Receita Total</h5>
+              <p class="card-text" id="receitaTotal">R$ 0.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gráfico -->
+      <h4 class="mt-4">Gráfico de Receita por Dia</h4>
+      <canvas id="graficoReceita" width="400" height="200"></canvas>
+
+      <!-- Tabela com os atendimentos -->
+      <h4 class="mt-4">Detalhes dos Atendimentos</h4>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Barbeiro</th>
+            <th>Serviço</th>
+            <th>Receita</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaAtendimentos">
+          <!-- Os dados dos atendimentos filtrados serão inseridos aqui -->
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <!-- Modal de Filtros para Relatório -->
+  <div class="modal fade" id="modalRelatorioFiltros" tabindex="-1" aria-labelledby="modalRelatorioFiltrosLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalRelatorioFiltrosLabel">Filtrar Relatório</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="relatorioFiltrosForm">
+            <div class="mb-3 d-flex">
+              <div class="me-2" style="flex: 1;">
+                <label for="dataInicio" class="form-label">Data de Início</label>
+                <input type="date" class="form-control" id="dataInicio" required>
+              </div>
+              <div style="flex: 1;">
+                <label for="dataFim" class="form-label">Data de Fim</label>
+                <input type="date" class="form-control" id="dataFim" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="barbeiro" class="form-label">Barbeiro</label>
+              <input type="text" class="form-control" id="barbeiro" placeholder="Digite o nome do barbeiro">
+            </div>
+            <div class="mb-3">
+              <label for="servico" class="form-label">Tipo de Serviço</label>
+              <div>
+                <input type="checkbox" class="form-check-input" id="servicoCabelo" value="Cabelo">
+                <label class="form-check-label" for="servicoCabelo">Cabelo</label>
+              </div>
+              <div>
+                <input type="checkbox" class="form-check-input" id="servicoBarba" value="Barba">
+                <label class="form-check-label" for="servicoBarba">Barba</label>
+              </div>
+              <div>
+                <input type="checkbox" class="form-check-input" id="servicoBigode" value="Bigode">
+                <label class="form-check-label" for="servicoBigode">Bigode</label>
+              </div>
+              <div>
+                <input type="checkbox" class="form-check-input" id="servicoSobrancelha" value="Sobrancelha">
+                <label class="form-check-label" for="servicoSobrancelha">Sobrancelha</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Aplicar Filtros</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+  <!-- Inclusão da biblioteca Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    // Função para formatar a data
+    function formatData(data) {
+      const [year, month, day] = data.split("-");
+      return `${day}/${month}/${year}`;
+    }
+
+    // Botão "Gerar Relatório" abre o modal de filtros
+    document.getElementById("btnGerarRelatorio").addEventListener("click", function () {
+      const modalRelatorio = new bootstrap.Modal(document.getElementById("modalRelatorioFiltros"));
+      modalRelatorio.show();
+    });
+
+    // Submissão do formulário de filtros
+    document.getElementById("relatorioFiltrosForm").onsubmit = function (e) {
+      e.preventDefault();
+
+      const dataInicio = document.getElementById("dataInicio").value;
+      const dataFim = document.getElementById("dataFim").value;
+      const barbeiro = document.getElementById("barbeiro").value.toLowerCase();
+
+      // Obter os valores selecionados nos checkboxes
+      const tipoServicoSelecionado = [];
+      if (document.getElementById("servicoCabelo").checked) tipoServicoSelecionado.push("Cabelo");
+      if (document.getElementById("servicoBarba").checked) tipoServicoSelecionado.push("Barba");
+      if (document.getElementById("servicoBigode").checked) tipoServicoSelecionado.push("Bigode");
+      if (document.getElementById("servicoSobrancelha").checked) tipoServicoSelecionado.push("Sobrancelha");
+
+      console.log("Filtros aplicados:");
+      console.log({ dataInicio, dataFim, barbeiro, tipoServicoSelecionado });
+
+      // Fecha o modal após aplicar os filtros
+      const modalRelatorio = bootstrap.Modal.getInstance(document.getElementById("modalRelatorioFiltros"));
+      modalRelatorio.hide();
+
+      const atendimentos = [
+        { barbeiro: 'Carlos', tipoServico: 'Cabelo', data: '2024-11-23', receita: 50 },
+        { barbeiro: 'Carlos', tipoServico: 'Barba', data: '2024-11-23', receita: 30 },
+        { barbeiro: 'Ana', tipoServico: 'Bigode', data: '2024-11-24', receita: 40 },
+        { barbeiro: 'Carlos', tipoServico: 'Cabelo', data: '2024-11-24', receita: 50 },
+        { barbeiro: 'Carlos', tipoServico: 'Sobrancelha', data: '2024-11-24', receita: 20 },
+        { barbeiro: 'Ricardo', tipoServico: 'Cabelo', data: '2024-11-25', receita: 50 },
+        { barbeiro: 'Ana', tipoServico: 'Bigode', data: '2024-11-25', receita: 40 },
+        { barbeiro: 'Carlos', tipoServico: 'Cabelo', data: '2024-11-25', receita: 50 },
+      ];
+
+      // Filtrar atendimentos com base nos critérios
+      const atendimentosFiltrados = atendimentos.filter(atendimento => {
+        const dataValida = (new Date(atendimento.data) >= new Date(dataInicio)) &&
+          (new Date(atendimento.data) <= new Date(dataFim));
+        const barbeiroValido = !barbeiro || atendimento.barbeiro.toLowerCase().includes(barbeiro);
+        const tipoServicoValido = tipoServicoSelecionado.length === 0 || tipoServicoSelecionado.includes(atendimento.tipoServico);
+
+        return dataValida && barbeiroValido && tipoServicoValido;
+      });
+
+      // Calcular total de atendimentos e receita
+      const totalAtendimentos = atendimentosFiltrados.length;
+      const receitaTotal = atendimentosFiltrados.reduce((acc, atendimento) => acc + atendimento.receita, 0);
+
+      // Exibir os resultados no relatório
+      exibirRelatorio(totalAtendimentos, receitaTotal, atendimentosFiltrados);
+    };
+
+    function exibirRelatorio(totalAtendimentos, receitaTotal, atendimentosFiltrados) {
+      const container = document.getElementById('relatorioContainer');
+      const tabelaAtendimentos = document.getElementById('tabelaAtendimentos');
+      const totalAtendimentosEl = document.getElementById('totalAtendimentos');
+      const receitaTotalEl = document.getElementById('receitaTotal');
+
+      // Atualizar os cards com os dados
+      totalAtendimentosEl.textContent = totalAtendimentos;
+      receitaTotalEl.textContent = `R$ ${receitaTotal.toFixed(2)}`;
+
+      // Limpar a tabela antes de adicionar os dados
+      tabelaAtendimentos.innerHTML = '';
+
+      // Adicionar os atendimentos na tabela
+      atendimentosFiltrados.forEach(atendimento => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+      <td>${formatData(atendimento.data)}</td>
+      <td>${atendimento.barbeiro}</td>
+      <td>${atendimento.tipoServico}</td>
+      <td>R$ ${atendimento.receita.toFixed(2)}</td>
+    `;
+        tabelaAtendimentos.appendChild(row);
+      });
+
+      // Agrupar receitas por data
+      const receitasPorDia = atendimentosFiltrados.reduce((acc, atendimento) => {
+        acc[atendimento.data] = (acc[atendimento.data] || 0) + atendimento.receita;
+        return acc;
+      }, {});
+
+      const datas = Object.keys(receitasPorDia).map(formatData); // Datas formatadas
+      const receitasPorDiaValues = Object.values(receitasPorDia); // Valores das receitas por dia
+
+      // Atualizar o gráfico com os novos dados
+      atualizarGraficoReceita(datas, receitasPorDiaValues);
+    };
+
+    let graficoReceita; // Variável global para o gráfico
+
+    function atualizarGraficoReceita(datas, receitasPorDiaValues) {
+      // Se o gráfico já existir, destruí-lo antes de criar um novo
+      if (graficoReceita) {
+        graficoReceita.destroy();
+      }
+
+      const ctx = document.getElementById('graficoReceita').getContext('2d');
+      graficoReceita = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: datas, // Rótulos formatados (datas)
+          datasets: [{
+            label: 'Receita por Dia',
+            data: receitasPorDiaValues, // Valores das receitas por dia
+            backgroundColor: 'rgba(75, 192, 192, 0.2)', // Cor de fundo das barras
+            borderColor: 'rgba(75, 192, 192, 1)', // Cor da borda das barras
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top'
+            },
+            tooltip: {
+              callbacks: {
+                label: (tooltipItem) => {
+                  return `R$ ${tooltipItem.raw.toFixed(2)}`;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    }
+
+    // Preparar os dados para o gráfico com base nos filtros aplicados
+    const datasFiltradas = Array.from(new Set(atendimentosFiltrados.map(a => a.data))); // Datas únicas filtradas
+    const receitasPorDiaFiltradas = atendimentosFiltrados.reduce((acc, atendimento) => {
+      const data = atendimento.data;
+      if (!acc[data]) acc[data] = 0;
+      acc[data] += atendimento.receita;
+      return acc;
+    }, {});
+
+    // Obter os valores das receitas filtradas
+    const receitasPorDiaValuesFiltradas = datasFiltradas.map(data => receitasPorDiaFiltradas[data]);
+
+    // Formatar as datas para exibição no gráfico
+    const datasFormatadasFiltradas = datasFiltradas.map(data => formatData(data));
+
+    // Atualizar o gráfico com os dados filtrados
+    atualizarGraficoReceita(datasFormatadasFiltradas, receitasPorDiaValuesFiltradas);
+
+    // Criar o gráfico
+    const ctx = document.getElementById('graficoReceita').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',  // Mudança aqui de 'line' para 'bar'
+      data: {
+        labels: datasFormatadas, // Usar datas formatadas no gráfico
+        datasets: [{
+          label: 'Receita por Dia',
+          data: receitasPorDiaValues,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)', // Cor de fundo das barras
+          borderColor: 'rgba(75, 192, 192, 1)', // Cor da borda das barras
+          borderWidth: 1
+        }]
+      }
+    });
+    
+  </script>
+
+</body>
+
+</html>
